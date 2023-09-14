@@ -1,19 +1,16 @@
 <template>
-  <div class="container">
-    <div class="content">
-    <div class="text">
-      <h1 class="title">ADOPET'S</h1>
-      <p class="subtitle">Adopets é a sua plataforma online confiável para encontrar o seu novo melhor amigo de quatro patas. Nós conectamos animais adoráveis com famílias amorosas em todo o mundo. Estamos comprometidos em garantir que cada animal encontre um lar amoroso e permanente.</p>
-      <div class="buttons">
-        <div class="btn btn1"><a href="#">Botão 1</a></div>
-        <div class="btn btn2"><a href="#">Botão 2</a></div>
+    <div class="container">
+      <div class="content">
+        <div class="text">
+          <div class="title">ADOPETS</div>
+          <p class="subtitle">Adopets é a sua plataforma online confiável para encontrar o seu novo melhor amigo de quatro patas. Nós conectamos animais adoráveis com famílias amorosas em todo o mundo. Estamos comprometidos em garantir que cada animal encontre um lar amoroso e permanente.</p>
+          <div class="buttons">
+            <div class="btn btn1"><a href="#">Botão 1</a></div>
+            <div class="btn btn2"><a href="#">Botão 2</a></div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="image">
-      <img src="../assets/img/pets.png" alt="pets">
-    </div>
-  </div>
-  </div>
 </template>
 <script>
   export default{
@@ -23,38 +20,59 @@
 
 <style lang="scss" scoped>
 .container{
-  background-color: var(--color-1);
+  background-image: url('../assets/img/modelo-banner.png');
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
   .content{
     display: flex;
-    align-items:center ;
+    align-items:center;
     .text{
-      width: 100%;
+      width: 50%;
+      height: 100%;
+      padding: 1rem;
+      display: grid;
+      gap: 2rem;
+      align-content: center;
       .title{
         font-size: 46px;
         line-height: 25px;
       }
       .subtitle{
         font: 600 var(--subtitle-font-size) var(--body-font);
-        color: var(--color-4);
       }
       .buttons{
-        margin-top: 1rem;
         width: 100%;
         display: flex;
         gap: 1rem;
         align-items: center;
-
         .btn1{
           background-color: transparent;
+          a{
+            color: var(--color-4);
+          }
+          &:hover{
+            border: 3px solid var(--color-3);
+            background-color: var(--color-4);
+            a{
+              color: var(--color-3);
+            }
+          }
         }
         .btn2{
-          border: 1px solid var(--color-2);
+          border: 3px solid var(--color-2);
           background-color: var(--color-2);
+          &:hover{
+            background-color: transparent;
+            border: 3px solid var(--color-4);
+            a{
+              color: var(--color-4);
+            }
+          }
         }
       }
-    }
-    .image{
-      width: 100%;
     }
   }
 }

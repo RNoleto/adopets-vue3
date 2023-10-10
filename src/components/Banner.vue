@@ -25,7 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background-image: url("src/assets/img/modelo-banner.png");
+  background-image: url("../assets/img/modelo-banner.png");
   width: 100%;
   height: 800px;
   background-size: cover;

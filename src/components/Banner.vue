@@ -3,9 +3,9 @@
     <div class="content">
       <div class="firstColumn"></div>
       <div class="secondColumn">
+        <img src="../assets/img/cat1.jpg" alt="" />
         <img src="../assets/img/dog1.jpg" alt="" />
-        <img src="../assets/img/dog2.jpg" alt="" />
-        <img src="../assets/img/dog1.jpg" alt="" />
+        <img src="../assets/img/cat2.jpg" alt="" />
         <img src="../assets/img/dog2.jpg" alt="" />
       </div>
     </div>
@@ -21,7 +21,7 @@ export default {
 .banner {
   background-color: pink;
   width: 100%;
-  height: 650px;
+  height: 600px;
   display: flex;
   align-items: center;
   .content {
@@ -37,9 +37,11 @@ export default {
     .secondColumn {
       width: 50%;
       height: 100%;
+      display: flex;
+      flex-wrap: wrap;
       img {
-        height: 50%;
         width: 50%;
+        height: 50%;
         object-fit: cover;
       }
     }

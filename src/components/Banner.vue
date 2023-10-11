@@ -5,8 +5,8 @@
       <div class="secondColumn">
         <img src="../assets/img/cat1.jpg" alt="" />
         <img src="../assets/img/dog1.jpg" alt="" />
-        <img src="../assets/img/cat2.jpg" alt="" />
         <img src="../assets/img/dog2.jpg" alt="" />
+        <img src="../assets/img/cat2.jpg" alt="" />
       </div>
     </div>
   </div>

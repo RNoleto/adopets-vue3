@@ -46,11 +46,17 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+h1 {
+  margin: 0em 0px !important;
+}
+
 .title {
   font: 700 var(--title-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
 }
+
+.subtitle {}
 
 img {
   width: 100%;
@@ -69,16 +75,4 @@ h1 {
 .content {
   max-width: 1200px;
   margin: 0 auto;
-}
-
-.btn {
-  width: 100%;
-  text-align: center;
-  padding: 10px 10px;
-  border: 3px solid var(--color-4);
-  border-radius: 50px;
-  background-color: var(--color-4);
-  box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
-  transition: all .6s ease-in-out;
-  cursor: pointer;
 }

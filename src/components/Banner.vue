@@ -2,7 +2,11 @@
   <div class="banner">
     <div class="content">
       <div class="firstColumn">
-        <p>topo</p>
+        <div class="top">
+          <img src="../assets/img/logo.png" alt="logo" class="logo" />
+          <h1 class="title">Adopets</h1>
+          <p>menu</p>
+        </div>
         <h1 class="title">Titulo</h1>
         <p>End</p>
       </div>
@@ -37,6 +41,14 @@ export default {
       flex-direction: column;
       gap: 1rem;
       padding: 1rem;
+      .top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .logo {
+          width: 60px;
+        }
+      }
     }
     .secondColumn {
       width: 100%;

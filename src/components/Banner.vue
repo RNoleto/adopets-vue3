@@ -2,25 +2,17 @@
   <div class="banner">
     <div class="content">
       <div class="firstColumn">
-        <div class="top">
-          <img src="../assets/img/logo.png" alt="logo" class="logo" />
-          <h1>Adopets</h1>
-        </div>
-        <div class="midle">
-          <h1 class="title">Titulo como frase de efeito</h1>
-          <h3 class="subtitle">Subtitulo</h3>
-          <p>Botão</p>
-        </div>
-        <div class="end">
-          <h1>End</h1>
-          <p>Espaço para redes sociais</p>
-        </div>
+        <p>topo</p>
+        <h1 class="title">Titulo</h1>
+        <p>End</p>
       </div>
       <div class="secondColumn">
-        <img src="../assets/img/cat1.webp" alt="" />
-        <img src="../assets/img/dog1.webp" alt="" />
-        <img src="../assets/img/dog2.webp" alt="" />
-        <img src="../assets/img/cat2.webp" alt="" />
+        <div class="images">
+          <img src="../assets/img/cat1.webp" alt="" />
+          <img src="../assets/img/dog1.webp" alt="" />
+          <img src="../assets/img/cat2.webp" alt="" />
+          <img src="../assets/img/dog2.webp" alt="" />
+        </div>
       </div>
     </div>
   </div>
@@ -32,56 +24,49 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+//Mobile First
 .banner {
-  width: 100%;
-  height: 600px;
-  display: flex;
-  align-items: center;
+  background-color: pink;
   .content {
-    width: 100%;
-    height: 100%;
     display: flex;
-    overflow: hidden;
-    box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.3);
+    flex-wrap: wrap;
     .firstColumn {
-      width: 50%;
-      height: 100%;
-      background-color: grey;
+      width: 100%;
+      background-color: red;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      padding: 10px;
-      .top {
-        height: auto;
-        display: flex;
-        align-items: center;
-        .logo {
-          width: 120px;
-        }
-      }
-      .midle {
-        width: 100%;
-        .title {
-          text-transform: uppercase;
-        }
-        .subtitle {
-          font-style: italic;
-        }
-      }
-      .end {
-        background-color: pink;
-        height: auto;
-      }
+      gap: 1rem;
+      padding: 1rem;
     }
     .secondColumn {
-      width: 50%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      img {
+      width: 100%;
+      background-color: yellow;
+      .images {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 100%;
+        img {
+          width: 50%;
+          height: 50%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 720px) {
+  .banner {
+    height: 700px;
+    .content {
+      .firstColumn {
         width: 50%;
-        height: 50%;
-        object-fit: cover;
+        height: auto;
+        background-color: grey;
+      }
+      .secondColumn {
+        width: 50%;
+        height: auto;
       }
     }
   }

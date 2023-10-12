@@ -8,9 +8,12 @@
         </div>
         <div class="midle">
           <h1 class="title">Titulo como frase de efeito</h1>
+          <h3 class="subtitle">Subtitulo</h3>
+          <p>Botão</p>
         </div>
         <div class="end">
           <h1>End</h1>
+          <p>Espaço para redes sociais</p>
         </div>
       </div>
       <div class="secondColumn">
@@ -30,7 +33,6 @@ export default {
 
 <style lang="scss" scoped>
 .banner {
-  background-color: pink;
   width: 100%;
   height: 600px;
   display: flex;
@@ -58,10 +60,12 @@ export default {
         }
       }
       .midle {
-        background-color: red;
         width: 100%;
         .title {
           text-transform: uppercase;
+        }
+        .subtitle {
+          font-style: italic;
         }
       }
       .end {

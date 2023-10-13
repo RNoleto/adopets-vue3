@@ -5,17 +5,17 @@
         <div class="top">
           <img src="../assets/img/logo.png" alt="logo" class="logo" />
           <h1 class="title">Adopets</h1>
-          <p>menu</p>
+          <p>menu mb</p>
         </div>
         <h1 class="title">Titulo</h1>
         <p>End</p>
       </div>
       <div class="secondColumn">
         <div class="images">
-          <img src="../assets/img/cat1.webp" alt="" />
-          <img src="../assets/img/dog1.webp" alt="" />
-          <img src="../assets/img/cat2.webp" alt="" />
-          <img src="../assets/img/dog2.webp" alt="" />
+          <img src="../assets/img/cat1.webp" alt="" class="card" />
+          <img src="../assets/img/dog1.webp" alt="" class="card" />
+          <img src="../assets/img/cat2.webp" alt="" class="card" />
+          <img src="../assets/img/dog2.webp" alt="" class="card" />
         </div>
       </div>
     </div>
@@ -36,6 +36,7 @@ export default {
     flex-wrap: wrap;
     .firstColumn {
       width: 100%;
+      height: auto;
       background-color: red;
       display: flex;
       flex-direction: column;
@@ -59,9 +60,13 @@ export default {
         width: 100%;
         height: 100%;
         img {
+          transition: transform 0.2s ease-in;
           width: 50%;
           height: 50%;
           object-fit: cover;
+        }
+        .card:hover {
+          transform: scale(1.1); //Não vai ser esse efeito, somente teste
         }
       }
     }
@@ -69,16 +74,11 @@ export default {
 }
 @media (min-width: 720px) {
   .banner {
-    height: 700px;
     .content {
-      .firstColumn {
-        width: 50%;
-        height: auto;
-        background-color: grey;
-      }
+      .firstColumn,
       .secondColumn {
         width: 50%;
-        height: auto;
+        height: 700px;
       }
     }
   }

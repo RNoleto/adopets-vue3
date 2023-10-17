@@ -56,7 +56,11 @@ h1 {
   -webkit-font-smoothing: auto;
 }
 
-.subtitle {}
+.subtitle {
+  font: 300 var(--subtitle-font-size) var(--title-font);
+  color: var(--title-color);
+  -webkit-font-smoothing: auto;
+}
 
 img {
   width: 100%;

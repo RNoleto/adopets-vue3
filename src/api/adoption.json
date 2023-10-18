@@ -1,0 +1,34 @@
+{
+  "dog": [
+    {
+      "name": "Bolinha",
+      "breed": "Corgi",
+      "size": "Pequeno",
+      "age": "6 meses",
+      "img": "../assets/img/dog1.webp"
+    },
+    {
+      "name": "Manhosa",
+      "breed": "Buldog",
+      "size": "Porte",
+      "age": "Idade",
+      "img": "../assets/img/dog2.webp"
+    }
+  ],
+  "cat": [
+    {
+      "name": "Mingau",
+      "breed": "Raça",
+      "size": "Porte",
+      "age": "Idade",
+      "img": "../assets/img/cat1.webp"
+    },
+    {
+      "name": "Pelúcio",
+      "breed": "Raça",
+      "size": "Porte",
+      "age": "Idade",
+      "img": "../assets/img/cat2.webp"
+    }
+  ]
+}

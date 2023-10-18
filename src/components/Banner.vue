@@ -7,8 +7,18 @@
           <h1 class="title">Adopets</h1>
           <p>menu mb</p>
         </div>
-        <h1 class="title">Titulo</h1>
-        <p>End</p>
+        <div class="description">
+          <h1 class="title">Seja o lar dessas fofuras</h1>
+          <p class="info">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+            esse eum repellat error tenetur, ipsam maxime minima deleniti fugit
+            beatae pariatur consequatur dolorem animi expedita magni voluptate
+            quaerat voluptates corporis!
+          </p>
+        </div>
+        <div class="socials">
+          <p>Icones de redes sociais</p>
+        </div>
       </div>
       <div class="secondColumn">
         <div class="images">
@@ -56,6 +66,13 @@
 <script>
 export default {
   name: "Banner",
+  data() {
+    return {
+      dogs: [],
+      cats: [],
+    };
+  },
+  created() {},
 };
 </script>
 
@@ -72,12 +89,27 @@ export default {
       flex-direction: column;
       gap: 1rem;
       padding: 1rem;
+      background-color: grey;
+      color: var(--color-4);
+
       .top {
         display: flex;
         align-items: center;
         justify-content: space-between;
         .logo {
           width: 60px;
+        }
+      }
+      .description {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        .title {
+          text-transform: uppercase;
+          line-height: 25px;
+        }
+        .info {
+          font-style: italic;
         }
       }
     }

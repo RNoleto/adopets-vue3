@@ -2,6 +2,9 @@
   <div class="banner">
     <div class="content">
       <div class="firstColumn">
+        <div class="top">
+          <Navbar />
+        </div>
         <div class="description">
           <h1 class="title">Seja o lar dessas fofuras</h1>
           <p class="info">
@@ -62,8 +65,12 @@
   </div>
 </template>
 <script>
+import Navbar from "./Navbar.vue";
 export default {
   name: "Banner",
+  components: {
+    Navbar,
+  },
   data() {
     return {
       dogs: [],

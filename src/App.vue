@@ -1,16 +1,10 @@
 <template>
-  <div class="main">
-    <Banner />
+  <div id="app">
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import Banner from "./components/Banner.vue";
-
-export default {
-  components: {
-    Banner,
-  },
-};
+export default {};
 </script>
 <style lang="scss" scoped>
 </style>

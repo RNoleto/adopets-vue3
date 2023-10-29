@@ -17,7 +17,10 @@
           </p>
         </div>
         <div class="socials">
-          <p>Icones de redes sociais</p>
+          <p>Facebook</p>
+          <p>Instagram</p>
+          <p>Whatsapp</p>
+          <p>TikTok</p>
         </div>
       </div>
       <div class="secondColumn">
@@ -112,6 +115,12 @@ export default {
           font-style: italic;
         }
       }
+      .socials {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        width: 100%;
+      }
     }
     .secondColumn {
       width: 100%;
@@ -181,6 +190,12 @@ export default {
       .secondColumn {
         width: 50%;
         height: 700px;
+      }
+      .firstColumn {
+        justify-content: space-between;
+        .description {
+          min-height: 150px;
+        }
       }
     }
   }

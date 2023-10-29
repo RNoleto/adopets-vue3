@@ -2,8 +2,10 @@
   <main>
     <Banner />
     <section>
-      <div class="content">
-        <h1>Bem vindos</h1>
+      <div class="container">
+        <div class="content">
+          <h1>Bem vindos!</h1>
+        </div>
       </div>
     </section>
   </main>

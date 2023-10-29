@@ -1,7 +1,11 @@
 <template>
-  <Banner />
-  <div class="content">
-    <h1>Página home</h1>
+  <div class="main">
+    <Banner />
+    <section>
+      <div class="content">
+        <h1>Bem vindos</h1>
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -12,3 +16,10 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.main {
+  background-color: pink;
+  height: 100%;
+}
+</style>

@@ -1,12 +1,12 @@
 <template>
-  <div class="main">
+  <main>
     <Banner />
     <section>
       <div class="content">
         <h1>Bem vindos</h1>
       </div>
     </section>
-  </div>
+  </main>
 </template>
 <script>
 import Banner from "../components/Banner.vue";
@@ -18,8 +18,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main {
-  background-color: pink;
-  height: 100%;
-}
 </style>

@@ -108,15 +108,21 @@ export default {
         flex-wrap: wrap;
         gap: 1rem;
         .title {
+          width: 100%;
+          text-align: center;
           text-transform: uppercase;
           line-height: 25px;
         }
         .info {
+          width: 100%;
+          text-align: center;
           font-style: italic;
         }
       }
       .socials {
+        width: 100%;
         display: flex;
+        flex-wrap: wrap;
         gap: 1rem;
         justify-content: center;
         width: 100%;

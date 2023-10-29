@@ -2,11 +2,6 @@
   <div class="banner">
     <div class="content">
       <div class="firstColumn">
-        <div class="top">
-          <img src="../assets/img/logo.png" alt="logo" class="logo" />
-          <h1 class="title">Adopets</h1>
-          <p>menu mb</p>
-        </div>
         <div class="description">
           <h1 class="title">Seja o lar dessas fofuras</h1>
           <p class="info">
@@ -94,15 +89,6 @@ export default {
       padding: 1rem;
       background-color: grey;
       color: var(--color-4);
-
-      .top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .logo {
-          width: 60px;
-        }
-      }
       .description {
         display: flex;
         flex-wrap: wrap;

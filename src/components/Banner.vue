@@ -8,10 +8,10 @@
         <div class="description">
           <h1 class="title">Seja o lar dessas fofuras</h1>
           <p class="info">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-            esse eum repellat error tenetur, ipsam maxime minima deleniti fugit
-            beatae pariatur consequatur dolorem animi expedita magni voluptate
-            quaerat voluptates corporis!
+            Torne-se um herói peludo! 🐶🐱 Adote um amigo de quatro patas e mude
+            uma vida para sempre. Nossos cães e gatos aguardam amor, cuidado e
+            um lar. Faça a diferença hoje - traga alegria e amor para sua casa,
+            adote um companheiro leal.
           </p>
         </div>
         <div class="socials">
@@ -109,7 +109,6 @@ export default {
         .info {
           width: 100%;
           text-align: center;
-          font-style: italic;
         }
       }
       .socials {

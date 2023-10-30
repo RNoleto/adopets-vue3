@@ -72,6 +72,9 @@ export default {
 .welcome {
   .content {
     padding: 0px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
 }
 </style>

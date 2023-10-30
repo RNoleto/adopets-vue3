@@ -161,7 +161,7 @@ export default {
             object-fit: cover;
           }
           &-infos {
-            font: var(--subtitle-font-size) var(--title-font);
+            font: 12px var(--title-font);
             color: var(--color-4);
             background-color: rgba($color: #000000, $alpha: 0.3);
             backdrop-filter: blur(3px);
@@ -173,7 +173,7 @@ export default {
             position: absolute;
             left: 0;
             bottom: 0;
-            transform: translatey(110px);
+            transform: translatey(190px);
             transition: all 0.7s ease-in-out;
           }
           &:hover {
@@ -201,6 +201,13 @@ export default {
         justify-content: space-between;
         .description {
           min-height: 150px;
+        }
+      }
+      .secondColumn {
+        .card {
+          .card-infos {
+            font: var(--subtitle-font-size) var(--title-font);
+          }
         }
       }
     }

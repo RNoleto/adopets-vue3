@@ -15,7 +15,11 @@ ul {
 a {
   text-decoration: none;
   font: 600 var(--subtitle-font-size) var(--body-font);
-  color: var(--color-3);
+  color: var(--color-4);
+
+  &:hover {
+    color: var(--color-1);
+  }
 }
 
 /*====  VARIABLES ============================ */
@@ -37,6 +41,10 @@ a {
 /*====  BASE ============================ */
 html {
   scroll-behavior: smooth;
+}
+
+main {
+  min-height: 650px;
 }
 
 body {

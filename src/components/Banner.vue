@@ -1,19 +1,18 @@
 <template>
+<<<<<<< HEAD
   <div class="banner">
     <div class="content">
       <div class="firstColumn">
         <div class="top">
-          <img src="../assets/img/logo.png" alt="logo" class="logo" />
-          <h1 class="title">Adopets</h1>
-          <p>menu mb</p>
+          <Navbar />
         </div>
         <div class="description">
           <h1 class="title">Seja o lar dessas fofuras</h1>
           <p class="info">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-            esse eum repellat error tenetur, ipsam maxime minima deleniti fugit
-            beatae pariatur consequatur dolorem animi expedita magni voluptate
-            quaerat voluptates corporis!
+            Torne-se um herói peludo! 🐶🐱 Adote um amigo de quatro patas e mude
+            uma vida para sempre. Nossos cães e gatos aguardam amor, cuidado e
+            um lar. Faça a diferença hoje - traga alegria e amor para sua casa,
+            adote um companheiro leal.
           </p>
         </div>
         <div class="socials">
@@ -61,14 +60,34 @@
               <p>Porte</p>
             </div>
           </div>
+=======
+  <div class="container">
+    <div class="content">
+      <div class="text">
+        <div class="title">ADOPETS</div>
+        <p class="subtitle">
+          Adopets é a sua plataforma online confiável para encontrar o seu novo
+          melhor amigo de quatro patas. Nós conectamos animais adoráveis com
+          famílias amorosas em todo o mundo. Estamos comprometidos em garantir
+          que cada animal encontre um lar amoroso e permanente.
+        </p>
+        <div class="buttons">
+          <div class="btn btn1"><a href="#">Botão 1</a></div>
+          <div class="btn btn2"><a href="#">Botão 2</a></div>
+>>>>>>> main
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+<<<<<<< HEAD
+import Navbar from "./Navbar.vue";
 export default {
   name: "Banner",
+  components: {
+    Navbar,
+  },
   data() {
     return {
       dogs: [],
@@ -76,10 +95,15 @@ export default {
     };
   },
   created() {},
+=======
+export default {
+  name: "Banner",
+>>>>>>> main
 };
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< HEAD
 //Mobile First
 .banner {
   .content {
@@ -94,15 +118,6 @@ export default {
       padding: 1rem;
       background-color: grey;
       color: var(--color-4);
-
-      .top {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        .logo {
-          width: 60px;
-        }
-      }
       .description {
         display: flex;
         flex-wrap: wrap;
@@ -116,7 +131,6 @@ export default {
         .info {
           width: 100%;
           text-align: center;
-          font-style: italic;
         }
       }
       .socials {
@@ -201,6 +215,60 @@ export default {
         justify-content: space-between;
         .description {
           min-height: 150px;
+=======
+.container {
+  background-image: url("../assets/img/modelo-banner.png");
+  width: 100%;
+  height: 800px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  .content {
+    display: flex;
+    align-items: center;
+    .text {
+      width: 50%;
+      height: 100%;
+      padding: 1rem;
+      display: grid;
+      gap: 2rem;
+      align-content: center;
+      .title {
+        font-size: 46px;
+        line-height: 25px;
+      }
+      .subtitle {
+        font: 600 var(--subtitle-font-size) var(--body-font);
+      }
+      .buttons {
+        width: 100%;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        .btn1 {
+          background-color: transparent;
+          a {
+            color: var(--color-4);
+          }
+          &:hover {
+            border: 3px solid var(--color-3);
+            background-color: var(--color-4);
+            a {
+              color: var(--color-3);
+            }
+          }
+        }
+        .btn2 {
+          border: 3px solid var(--color-2);
+          background-color: var(--color-2);
+          &:hover {
+            background-color: transparent;
+            border: 3px solid var(--color-4);
+            a {
+              color: var(--color-4);
+            }
+          }
+>>>>>>> main
         }
       }
     }

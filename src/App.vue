@@ -1,14 +1,16 @@
 <template>
-  <div class="main">
-    <Banner />
+  <div id="app">
+    <router-view></router-view>
   </div>
+  <Footer />
 </template>
 <script>
-import Banner from "./components/Banner.vue";
-
+import Navbar from "./components/Navbar.vue";
+import Footer from "./components/Footer.vue";
 export default {
   components: {
-    Banner,
+    Navbar,
+    Footer,
   },
 };
 </script>

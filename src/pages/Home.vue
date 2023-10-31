@@ -1,4 +1,5 @@
 <template>
+
   <main>
     <Banner />
     <section class="welcome">
@@ -78,3 +79,9 @@ export default {
   }
 }
 </style>
+
+  <h1>Página Home teste</h1>
+</template>
+
+<script></script>
+

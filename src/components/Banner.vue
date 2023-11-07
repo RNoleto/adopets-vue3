@@ -63,23 +63,6 @@
       </div>
     </div>
   </div>
-  <div class="container">
-    <div class="content">
-      <div class="text">
-        <div class="title">ADOPETS</div>
-        <p class="subtitle">
-          Adopets é a sua plataforma online confiável para encontrar o seu novo
-          melhor amigo de quatro patas. Nós conectamos animais adoráveis com
-          famílias amorosas em todo o mundo. Estamos comprometidos em garantir
-          que cada animal encontre um lar amoroso e permanente.
-        </p>
-        <div class="buttons">
-          <div class="btn btn1"><a href="#">Botão 1</a></div>
-          <div class="btn btn2"><a href="#">Botão 2</a></div>
-        </div>
-      </div>
-    </div>
-  </div>
 </template>
 <script>
 import Navbar from "./Navbar.vue";

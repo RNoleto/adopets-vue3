@@ -1,7 +1,10 @@
 <template>
   <Banner />
-  <div class="content">
-    <h1>Página home</h1>
+  <div class="container">
+    <div class="content">
+      <h1>Página home</h1>
+      <p>Conteudo da página home, teste</p>
+    </div>
   </div>
 </template>
 <script>
@@ -12,3 +15,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  .content {
+    padding: 0px 10px;
+  }
+}
+</style>

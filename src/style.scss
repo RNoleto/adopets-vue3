@@ -32,7 +32,7 @@ a {
 
   // fonts
   --title-font-size: 1.875rem;
-  --subtitle-font-size: 1rem;
+  --subtitle-font-size: 1.1rem;
 
   --title-font: 'Poppins', sans-serif;
   --body-font: 'DM Sans', sans-serif;
@@ -64,6 +64,7 @@ h1 {
   font: 300 var(--subtitle-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
+  font-style: italic;
 }
 
 img {

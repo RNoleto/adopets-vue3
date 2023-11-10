@@ -31,7 +31,6 @@ export default {
   methods: {
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
-      console.log("aberto");
     },
     closeNav() {
       this.isNavOpen = false;

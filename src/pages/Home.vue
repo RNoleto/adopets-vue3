@@ -1,7 +1,7 @@
 <template>
   <Banner />
   <div class="container">
-    <div class="content">
+    <div class="content page">
       <h1 class="title">Adote um Amigo</h1>
       <h2 class="subtitle">A Importância da Adoção Animal</h2>
       <div class="text">

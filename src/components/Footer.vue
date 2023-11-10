@@ -28,7 +28,7 @@ export default {
 <style lang="scss" scoped>
 .container {
   padding: 3rem 0rem;
-  background-color: red;
+  background-color: var(--color-1);
   .content {
     padding: 0px 10px;
     display: flex;

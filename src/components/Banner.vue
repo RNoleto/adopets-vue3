@@ -15,10 +15,7 @@
           </p>
         </div>
         <div class="socials">
-          <p>Facebook</p>
-          <p>Instagram</p>
-          <p>Whatsapp</p>
-          <p>TikTok</p>
+          <Socials />
         </div>
       </div>
       <div class="secondColumn">
@@ -66,10 +63,12 @@
 </template>
 <script>
 import Navbar from "./Navbar.vue";
+import Socials from "./Socials.vue";
 export default {
   name: "Banner",
   components: {
     Navbar,
+    Socials,
   },
   data() {
     return {

@@ -5,12 +5,7 @@
         <img src="../assets/img/logo.png" alt="logo" class="logo" />
         <h1 class="title">Adopets</h1>
       </router-link>
-      <div class="socials">
-        <p>Facebook</p>
-        <p>Instagram</p>
-        <p>Whatsapp</p>
-        <p>TikTok</p>
-      </div>
+      <Socials />
       <div class="copyright">
         <p>Todos os direitos reservados.</p>
         <p>Desenvolvido por Ramon Ribeiro Noleto</p>
@@ -21,8 +16,12 @@
 </template>
 
 <script>
+import Socials from "./Socials.vue";
 export default {
   name: "Footer",
+  components: {
+    Socials,
+  },
 };
 </script>
 <style lang="scss" scoped>

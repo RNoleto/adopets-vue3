@@ -14,9 +14,7 @@
             adote um companheiro leal.
           </p>
         </div>
-        <div class="socials">
-          <Socials />
-        </div>
+        <Socials />
       </div>
       <div class="secondColumn">
         <div class="images">

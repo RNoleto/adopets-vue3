@@ -35,6 +35,12 @@
         </p>
       </div>
     </div>
+    <section class="blog">
+      <div class="content">
+        <h1 class="title">Titulo do blog</h1>
+        <h2 class="subtitle">Subtitulo</h2>
+      </div>
+    </section>
   </div>
 </template>
 <script>
@@ -56,6 +62,10 @@ export default {
       gap: 0.7rem;
       text-align: justify;
     }
+  }
+  //Sessão de Blog
+  .blog {
+    background-color: pink;
   }
 }
 </style>

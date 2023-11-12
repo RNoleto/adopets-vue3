@@ -1,34 +1,47 @@
 {
-  "dog": [
-    {
-      "name": "Bolinha",
-      "breed": "Corgi",
-      "size": "Pequeno",
-      "age": "6 meses",
-      "img": "../assets/img/dog1.webp"
-    },
-    {
-      "name": "Manhosa",
-      "breed": "Buldog",
-      "size": "Porte",
-      "age": "Idade",
-      "img": "../assets/img/dog2.webp"
+  "adoption": {
+    "dog": [
+      {
+        "name": "Bolinha",
+        "breed": "Corgi",
+        "size": "Pequeno",
+        "age": "6 meses",
+        "img": "../assets/img/dog1.webp"
+      },
+      {
+        "name": "Manhosa",
+        "breed": "Buldog",
+        "size": "Porte",
+        "age": "Idade",
+        "img": "../assets/img/dog2.webp"
+      }
+    ],
+    "cat": [
+      {
+        "name": "Mingau",
+        "breed": "Raça",
+        "size": "Porte",
+        "age": "Idade",
+        "img": "../assets/img/cat1.webp"
+      },
+      {
+        "name": "Pelúcio",
+        "breed": "Raça",
+        "size": "Porte",
+        "age": "Idade",
+        "img": "../assets/img/cat2.webp"
+      }
+    ]
+  },
+  "posts": {
+    "Será que meu pet gosta de mim?": {
+      "date": "12/11/2023",
+      "resume": "Ah, a eterna pergunta que todos os donos de animais de estimação já se fizeram pelo menos uma vez na vida. Afinal, quem nunca olhou nos olhinhos pidões do seu bichinho e se perguntou: Será que ele me ama ou só quer a ração?",
+      "tags": [
+        "Engraçado",
+        "Informativo",
+        "Curiosidade"
+      ]
     }
-  ],
-  "cat": [
-    {
-      "name": "Mingau",
-      "breed": "Raça",
-      "size": "Porte",
-      "age": "Idade",
-      "img": "../assets/img/cat1.webp"
-    },
-    {
-      "name": "Pelúcio",
-      "breed": "Raça",
-      "size": "Porte",
-      "age": "Idade",
-      "img": "../assets/img/cat2.webp"
-    }
-  ]
+  }
 }

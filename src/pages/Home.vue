@@ -122,6 +122,7 @@ export default {
         }
         .cover {
           width: 100%;
+          border-radius: 5px;
           height: auto;
           object-fit: cover;
         }

@@ -37,8 +37,31 @@
     </div>
     <section class="blog">
       <div class="content">
-        <h1 class="title">Titulo do blog</h1>
-        <h2 class="subtitle">Subtitulo</h2>
+        <h1 class="title">Blog Adopet</h1>
+        <h2 class="subtitle">
+          Fique por dentro dos assuntos pets mais latidos e miados.
+        </h2>
+        <div class="cards">
+          <div class="card">
+            <div class="top">
+              <p>Será meu pet gosta de mim?</p>
+            </div>
+            <img src="../assets/img/posts/post1.webp" alt="Cão Pensando" />
+            <div class="midle">
+              <p>
+                Ah, a eterna pergunta que todos os donos de animais de estimação
+                já se fizeram pelo menos uma vez na vida. Afinal, quem nunca
+                olhou nos olhinhos pidões do seu bichinho e se perguntou: "Será
+                que ele me ama ou só quer a ração?"
+              </p>
+            </div>
+            <div class="end">
+              <p>Engraçado</p>
+              <p>Informativo</p>
+              <p>Curiosidades</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
@@ -66,6 +89,44 @@ export default {
   //Sessão de Blog
   .blog {
     background-color: pink;
+    padding: 10px 0px;
+    .cards {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      .card {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        padding: 15px 10px;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;
+        background-color: var(--color-2);
+        box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.25);
+        .top,
+        .midle,
+        .end {
+          width: 100%;
+        }
+        .top {
+          font-size: 18px;
+          font-weight: 600;
+        }
+        img {
+          box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.25);
+        }
+        .midle {
+          font-size: 14px;
+        }
+        .end {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 5px;
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
 </style>

@@ -44,9 +44,14 @@
         <div class="cards">
           <div class="card">
             <div class="top">
-              <p>Será meu pet gosta de mim?</p>
+              <p class="card-title">Será meu pet gosta de mim?</p>
+              <p class="date">12/11/2023</p>
             </div>
-            <img src="../assets/img/posts/post1.webp" alt="Cão Pensando" />
+            <img
+              src="../assets/img/posts/post1.webp"
+              alt="Cão Pensando"
+              class="cover"
+            />
             <div class="midle">
               <p>
                 Ah, a eterna pergunta que todos os donos de animais de estimação
@@ -56,9 +61,12 @@
               </p>
             </div>
             <div class="end">
-              <p>Engraçado</p>
-              <p>Informativo</p>
-              <p>Curiosidades</p>
+              <div class="tags">
+                <p class="tag">Engraçado</p>
+                <p class="tag">Informativo</p>
+                <p class="tag">Curiosidades</p>
+              </div>
+              <div class="btn">Veja mais</div>
             </div>
           </div>
         </div>
@@ -88,42 +96,69 @@ export default {
   }
   //Sessão de Blog
   .blog {
-    background-color: pink;
     padding: 10px 0px;
     .cards {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
       .card {
-        width: 100%;
+        max-width: 400px;
         height: auto;
-        border-radius: 15px;
-        padding: 15px 10px;
         display: flex;
-        gap: 10px;
         flex-direction: column;
-        background-color: var(--color-2);
-        box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.25);
+        gap: 10px;
+        background-color: var(--color-3);
+        padding: 20px 10px;
+        color: var(--color-4);
+        border-radius: 15px;
+        box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
         .top,
         .midle,
         .end {
           width: 100%;
+          padding: 0px 5px;
         }
         .top {
-          font-size: 18px;
-          font-weight: 600;
         }
-        img {
-          box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.25);
+        .cover {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
         }
         .midle {
-          font-size: 14px;
+          text-align: justify;
         }
         .end {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 5px;
           font-size: 12px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+          .tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            .tag {
+              padding: 5px 10px;
+              border: 1px solid var(--color-4);
+              border-radius: 15px;
+              box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.25);
+            }
+          }
+          .btn {
+            width: 100%;
+            height: auto;
+            padding: 10px;
+            text-align: center;
+            border: 1px solid var(--color-4);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            &:hover {
+              font-size: 14px;
+              font-weight: 600;
+              background-color: var(--color-1);
+            }
+          }
         }
       }
     }

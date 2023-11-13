@@ -18,40 +18,17 @@
       </div>
       <div class="secondColumn">
         <div class="images">
-          <div class="card">
-            <p class="card-name">Mingau</p>
-            <img src="../assets/img/cat1.webp" alt="" class="card-pet" />
+          <div
+            class="card"
+            v-for="(animal, index) in shuffledAnimals.slice(0, 4)"
+            :key="index"
+          >
+            <p class="card-name">{{ animal.name }}</p>
+            <img :src="animal.img" alt="" class="card-pet" />
             <div class="card-infos">
-              <p>Raça</p>
-              <p>Idade</p>
-              <p>Porte</p>
-            </div>
-          </div>
-          <div class="card">
-            <p class="card-name">Bolinha</p>
-            <img src="../assets/img/dog1.webp" alt="" class="card-pet" />
-            <div class="card-infos">
-              <p>Raça: Corgi</p>
-              <p>Idade: 6 meses</p>
-              <p>Porte: Pequeno</p>
-            </div>
-          </div>
-          <div class="card">
-            <p class="card-name">Manhosa</p>
-            <img src="../assets/img/dog2.webp" alt="" class="card-pet" />
-            <div class="card-infos">
-              <p>Raça</p>
-              <p>Idade</p>
-              <p>Porte</p>
-            </div>
-          </div>
-          <div class="card">
-            <p class="card-name">Pelúcio</p>
-            <img src="../assets/img/cat2.webp" alt="" class="card-pet" />
-            <div class="card-infos">
-              <p>Raça</p>
-              <p>Idade</p>
-              <p>Porte</p>
+              <p>Raça: {{ animal.breed }}</p>
+              <p>Idade: {{ animal.age }}</p>
+              <p>Porte: {{ animal.size }}</p>
             </div>
           </div>
         </div>
@@ -60,6 +37,7 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 import Navbar from "./Navbar.vue";
 import Socials from "./Socials.vue";
 export default {
@@ -70,11 +48,40 @@ export default {
   },
   data() {
     return {
-      dogs: [],
-      cats: [],
+      adoption: {
+        dogs: [],
+        cats: [],
+      },
     };
   },
-  created() {},
+  computed: {
+    shuffledAnimals() {
+      const dogs = this.adoption.dog || [];
+      const cats = this.adoption.cat || [];
+      const shuffled = [];
+
+      while (dogs.length > 0 || cats.length > 0) {
+        if (dogs.length > 0) {
+          shuffled.push(dogs.shift());
+        }
+        if (cats.length > 0) {
+          shuffled.push(cats.shift());
+        }
+      }
+
+      return shuffled;
+    },
+  },
+  created() {
+    axios
+      .get("src/api/adoption.json")
+      .then((response) => {
+        this.adoption = response.data.adoption;
+      })
+      .catch((error) => {
+        console.log("Erro ao buscar dados:", error);
+      });
+  },
 };
 </script>
 

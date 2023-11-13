@@ -42,10 +42,10 @@
           Fique por dentro dos assuntos pets mais latidos e miados.
         </h2>
         <div class="cards">
-          <div class="card" v-for="(post, index) in posts" :key="index">
+          <div class="card" v-for="(post, index) in sortedPosts" :key="index">
             <div class="top">
               <p class="card-title">{{ post.title }}</p>
-              <p class="date">{{ post.date }}</p>
+              <p class="date">{{ formatBrazilianDate(post.date) }}</p>
             </div>
             <img :src="post.img" alt="Cão Pensando" class="cover" />
             <div class="midle">
@@ -77,11 +77,28 @@ export default {
       posts: [],
     };
   },
+  computed: {
+    sortedPosts() {
+      if (!Array.isArray(this.posts)) {
+        this.posts = [];
+      }
+      return this.posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    },
+  },
+  methods: {
+    formatBrazilianDate(date) {
+      const dateObj = new Date(date);
+      const day = dateObj.getDate().toString().padStart(2, "0");
+      const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
+      const year = dateObj.getFullYear();
+      return `${day}/${month}/${year}`;
+    },
+  },
   created() {
     axios
       .get("src/api/adoption.json")
       .then((response) => {
-        this.posts = response.data.posts;
+        this.posts = Object.values(response.data.posts);
         console.log("Dados dos Posts:", this.posts);
       })
       .catch((error) => {

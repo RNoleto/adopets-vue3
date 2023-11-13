@@ -36,9 +36,9 @@
   "posts": {
     "1": {
       "title": "Será que meu pet gosta de mim?",
-      "date": "12/11/2023",
+      "date": "2023-11-12",
       "img": "src/assets/img/posts/post1.webp",
-      "resume": "Ah, a eterna pergunta que todos os donos de animais de estimação já se fizeram pelo menos uma vez na vida. Afinal, quem nunca olhou nos olhinhos pidões do seu bichinho e se perguntou: Será que ele me ama ou só quer a ração?",
+      "resume": "Ah, a eterna pergunta que todos os donos de animais de estimação já se fizeram pelo menos uma vez na vida. Afinal, quem nunca olhou nos olhinhos pidões do seu bichinho e se perguntou: \"Será que ele me ama ou só quer a ração?\"",
       "tags": [
         "Engraçado",
         "Informativo",
@@ -47,7 +47,7 @@
     },
     "2": {
       "title": "titulo 2",
-      "date": "13/11/2023",
+      "date": "2023-11-13",
       "img": "src/assets/img/posts/post2.webp",
       "resume": "Resumo",
       "tags": [

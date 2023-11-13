@@ -42,29 +42,20 @@
           Fique por dentro dos assuntos pets mais latidos e miados.
         </h2>
         <div class="cards">
-          <div class="card">
+          <div class="card" v-for="(post, index) in posts" :key="index">
             <div class="top">
-              <p class="card-title">Será meu pet gosta de mim?</p>
-              <p class="date">12/11/2023</p>
+              <p class="card-title">{{ post.title }}</p>
+              <p class="date">{{ post.date }}</p>
             </div>
-            <img
-              src="../assets/img/posts/post1.webp"
-              alt="Cão Pensando"
-              class="cover"
-            />
+            <img :src="post.img" alt="Cão Pensando" class="cover" />
             <div class="midle">
-              <p>
-                Ah, a eterna pergunta que todos os donos de animais de estimação
-                já se fizeram pelo menos uma vez na vida. Afinal, quem nunca
-                olhou nos olhinhos pidões do seu bichinho e se perguntou: "Será
-                que ele me ama ou só quer a ração?"
-              </p>
+              <p>{{ post.resume }}</p>
             </div>
             <div class="end">
               <div class="tags">
-                <p class="tag">Engraçado</p>
-                <p class="tag">Informativo</p>
-                <p class="tag">Curiosidades</p>
+                <p class="tag" v-for="(tag, index) in post.tags" :key="index">
+                  {{ tag }}
+                </p>
               </div>
               <div class="btn">Veja mais</div>
             </div>
@@ -76,9 +67,26 @@
 </template>
 <script>
 import Banner from "../components/Banner.vue";
+import axios from "axios";
 export default {
   components: {
     Banner,
+  },
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  created() {
+    axios
+      .get("src/api/adoption.json")
+      .then((response) => {
+        this.posts = response.data.posts;
+        console.log("Dados dos Posts:", this.posts);
+      })
+      .catch((error) => {
+        console.log("Erro ao buscar posts:", error);
+      });
   },
 };
 </script>
@@ -101,6 +109,7 @@ export default {
       width: 100%;
       display: flex;
       flex-wrap: wrap;
+      gap: 1rem;
       .card {
         max-width: 400px;
         height: auto;

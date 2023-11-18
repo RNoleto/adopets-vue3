@@ -6,14 +6,18 @@
         <h1 class="title">Adopets</h1>
       </router-link>
     </div>
+    <!-- Menu Mobile -->
     <div class="navbar-toggle" @click="toggleNav">
       <div class="bar"></div>
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
     <ul :class="{ 'nav-links-open': isNavOpen }">
-      <li><router-link to="/" @click="closeNav">Home</router-link></li>
-      <li>
+      <div class="btn-close" @click="closeNav">X</div>
+      <li class="menu-mobile">
+        <router-link to="/" @click="closeNav">Home</router-link>
+      </li>
+      <li class="menu-mobile">
         <router-link to="/about" @click="closeNav">Quem Somos</router-link>
       </li>
     </ul>
@@ -85,14 +89,15 @@ nav {
     &.nav-links-open {
       flex-direction: column;
       position: absolute;
-      top: 60px;
-      right: 1rem;
-      background-color: red;
+      width: 50%;
+      height: 100%;
+      top: 0px;
+      right: 0px;
+      background-color: var(--color-3);
+      box-shadow: -3px 0px 5px rgba($color: #000000, $alpha: 25);
       padding: 1rem;
-      border: 1px solid var(--color-4);
       display: none;
       z-index: 1;
-
       li {
         color: var(--color-4);
         margin: 0;
@@ -109,7 +114,17 @@ nav {
     ul {
       display: none;
       &.nav-links-open {
+        padding: 100px 0px;
         display: flex;
+        .btn-close {
+          font-weight: 600;
+          text-align: end;
+          padding: 10px 20px;
+        }
+        .menu-mobile {
+          padding: 1rem;
+          text-align: center;
+        }
       }
     }
   }

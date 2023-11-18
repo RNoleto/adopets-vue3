@@ -35,7 +35,7 @@
         </p>
       </div>
     </div>
-    <section class="blog">
+    <!-- <section class="blog">
       <div class="content">
         <h1 class="title">Blog Adopet</h1>
         <h2 class="subtitle">
@@ -62,15 +62,32 @@
           </div>
         </div>
       </div>
+    </section> -->
+    <section class="blog">
+      <div class="content">
+        <h2 class="title">Blog Adopet</h2>
+        <div class="cards">
+          <Card class="card" v-for="(post, index) in sortedPosts" :key="index">
+            <template v-slot:image
+              ><img class="card-image" :src="post.img" :alt="post.title"
+            /></template>
+            <template v-slot:title>{{ post.title }}</template>
+            <template v-slot:description>{{ post.resume }}</template>
+            <template v-slot:button> </template>
+          </Card>
+        </div>
+      </div>
     </section>
   </div>
 </template>
 <script>
 import Banner from "../components/Banner.vue";
+import Card from "../components/Card.vue";
 import axios from "axios";
 export default {
   components: {
     Banner,
+    Card,
   },
   data() {
     return {
@@ -99,7 +116,6 @@ export default {
       .get("src/api/adoption.json")
       .then((response) => {
         this.posts = Object.values(response.data.posts);
-        console.log("Dados dos Posts:", this.posts);
       })
       .catch((error) => {
         console.log("Erro ao buscar posts:", error);

@@ -12,7 +12,13 @@
       <div class="bar"></div>
       <div class="bar"></div>
     </div>
-    <ul :class="{ 'nav-links-open': isNavOpen }">
+    <ul
+      :class="{
+        'nav-links-open animate__animated': isNavOpen,
+        animate__fadeInRight: isNavOpen,
+        animate__fadeOutRight: isClosing,
+      }"
+    >
       <div class="btn-close" @click="closeNav">X</div>
       <li class="menu-mobile">
         <router-link to="/" @click="closeNav">Home</router-link>
@@ -25,19 +31,47 @@
 </template>
 
 <script>
+import "animate.css";
 export default {
   name: "Navbar",
   data() {
     return {
       isNavOpen: false,
+      isClosing: false,
     };
   },
   methods: {
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
+      this.isClosing = false;
+      this.toggleBodyScroll();
     },
     closeNav() {
-      this.isNavOpen = false;
+      if (this.isNavOpen) {
+        this.isClosing = true;
+
+        setTimeout(() => {
+          this.isNavOpen = false;
+          this.isClosing = false;
+          this.toggleBodyScroll();
+        }, 300);
+      }
+    },
+    toggleBodyScroll() {
+      if (this.isNavOpen) {
+        document.body.style.overflow = "hidden";
+        document.body.addEventListener("touchmove", this.preventScroll, {
+          passive: false,
+        });
+      } else {
+        document.body.style.overflow = "";
+        document.body.removeEventListener("touchmove", this.preventScroll, {
+          passive: false,
+        });
+      }
+    },
+    preventScroll(e) {
+      e.preventDefault();
     },
   },
 };

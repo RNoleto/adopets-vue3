@@ -1,6 +1,8 @@
 <template>
   <div class="card">
-    <slot name="image" class="card-image"></slot>
+    <slot name="image" class="card-image-container">
+      <slot name="image"></slot>
+    </slot>
     <div class="card-content">
       <h2 class="card-title">
         <slot name="title">{{ title }}</slot>
@@ -28,27 +30,24 @@ export default {
       type: String,
       default: "Default Description",
     },
-    methods: {
-      handleButtonClick() {
-        console.log("Botão 'Ver Mais' clicado!");
-      },
+  },
+  methods: {
+    handleButtonClick() {
+      console.log("Botão 'Ver Mais' clicado!");
     },
   },
 };
 </script>
 <style lang="scss" scoped>
 .card {
-  border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
-  &-image {
-    border-radius: 5px;
-  }
   &-content {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    padding: 10px 10px;
   }
   &-title {
     font-size: 1.2rem;

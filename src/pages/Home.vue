@@ -35,34 +35,6 @@
         </p>
       </div>
     </div>
-    <!-- <section class="blog">
-      <div class="content">
-        <h1 class="title">Blog Adopet</h1>
-        <h2 class="subtitle">
-          Fique por dentro dos assuntos pets mais latidos e miados.
-        </h2>
-        <div class="cards">
-          <div class="card" v-for="(post, index) in sortedPosts" :key="index">
-            <div class="top">
-              <p class="card-title">{{ post.title }}</p>
-              <p class="date">{{ formatBrazilianDate(post.date) }}</p>
-            </div>
-            <img :src="post.img" alt="Cão Pensando" class="cover" />
-            <div class="midle">
-              <p>{{ post.resume }}</p>
-            </div>
-            <div class="end">
-              <div class="tags">
-                <p class="tag" v-for="(tag, index) in post.tags" :key="index">
-                  {{ tag }}
-                </p>
-              </div>
-              <div class="btn">Veja mais</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
     <section class="blog">
       <div class="content">
         <h2 class="title">Blog Adopet</h2>
@@ -150,58 +122,15 @@ export default {
         flex-direction: column;
         gap: 10px;
         background-color: var(--color-3);
-        padding: 20px 10px;
+        // padding: 20px 10px;
         color: var(--color-4);
         border-radius: 15px;
         box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
-        .top,
-        .midle,
-        .end {
+        &-image {
           width: 100%;
-          padding: 0px 5px;
-        }
-        .top {
-        }
-        .cover {
-          width: 100%;
-          border-radius: 5px;
           height: auto;
-          object-fit: cover;
-        }
-        .midle {
-          text-align: justify;
-        }
-        .end {
-          font-size: 12px;
-          display: flex;
-          flex-direction: column;
-          gap: 10px;
-          .tags {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            .tag {
-              padding: 5px 10px;
-              border: 1px solid var(--color-4);
-              border-radius: 15px;
-              box-shadow: 1px 1px 5px rgba($color: #000000, $alpha: 0.25);
-            }
-          }
-          .btn {
-            width: 100%;
-            height: auto;
-            padding: 10px;
-            text-align: center;
-            border: 1px solid var(--color-4);
-            border-radius: 15px;
-            cursor: pointer;
-            transition: all 0.3s ease-in-out;
-            &:hover {
-              font-size: 14px;
-              font-weight: 600;
-              background-color: var(--color-1);
-            }
-          }
+          border-radius: 0px 0px 15px 15px;
+          box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
         }
       }
     }

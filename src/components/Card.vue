@@ -7,6 +7,9 @@
       <h2 class="card-title">
         <slot name="title">{{ title }}</slot>
       </h2>
+      <p class="card-date">
+        <slot name="date">{{ date }}</slot>
+      </p>
       <p class="card-description">
         <slot name="description">{{ description }}</slot>
         <slot></slot>
@@ -50,8 +53,11 @@ export default {
     padding: 10px 10px;
   }
   &-title {
-    font-size: 1.2rem;
-    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  &-date {
+    font-size: 12px;
+    transform: translateY(-5px);
   }
   &-description {
     font-size: 14px;

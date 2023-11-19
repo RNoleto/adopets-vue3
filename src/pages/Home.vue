@@ -44,6 +44,11 @@
               ><img class="card-image" :src="post.img" :alt="post.title"
             /></template>
             <template v-slot:title>{{ post.title }}</template>
+            <template v-slot:date
+              ><p>
+                {{ formatBrazilianDate(post.date) }}
+              </p></template
+            >
             <template v-slot:description>{{ post.resume }}</template>
             <template v-slot:button> </template>
           </Card>

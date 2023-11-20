@@ -19,7 +19,7 @@
         animate__fadeOutRight: isClosing,
       }"
     >
-      <div class="btn-close" @click="closeNav">X</div>
+      <div class="btn-close" @click="closeNav"></div>
       <li class="menu-mobile">
         <router-link to="/" @click="closeNav">Home</router-link>
       </li>
@@ -115,6 +115,9 @@ nav {
   ul {
     list-style: none;
     display: flex;
+    .btn-close {
+      display: none;
+    }
 
     li {
       margin-right: 1rem;
@@ -147,13 +150,28 @@ nav {
 
     ul {
       display: none;
+
       &.nav-links-open {
         padding: 100px 0px;
         display: flex;
         .btn-close {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
           font-weight: 600;
-          text-align: end;
-          padding: 10px 20px;
+          padding: 10px;
+          background-color: transparent;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &::before {
+            content: "X";
+            font-size: 18px;
+            clip-path: circle();
+            color: var(--color-3);
+            background-color: var(--color-4);
+            padding: 5px;
+          }
         }
         .menu-mobile {
           padding: 1rem;

@@ -170,7 +170,7 @@ export default {
   .container {
     .blog {
       .cards {
-        justify-content: space-between;
+        justify-content: start;
       }
     }
   }

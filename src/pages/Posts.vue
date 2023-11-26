@@ -65,17 +65,30 @@ export default {
 </script>
 <style lang="scss" scoped>
 .page {
-  align-items: center;
   padding: 0px 10px;
   .cards {
+    margin-top: 10px;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
     color: var(--color-4);
     .card {
-      width: 380px;
+      width: 350px;
       display: flex;
       flex-wrap: wrap;
       background-color: var(--color-3);
+    }
+  }
+}
+@media (min-width: 600px) {
+  .page {
+    .cards {
+      flex-direction: row;
+      justify-content: center;
+      gap: 10px;
     }
   }
 }

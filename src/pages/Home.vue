@@ -65,8 +65,8 @@
 </template>
 <script>
 import Banner from "../components/Banner.vue";
-import Card from "../components/Card.vue";
-import Services from "../components/Services.vue";
+import Card from "/src/components/Card.vue";
+import Services from "/src/components/Services.vue";
 import axios from "axios";
 export default {
   components: {

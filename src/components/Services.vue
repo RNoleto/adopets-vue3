@@ -41,7 +41,7 @@ export default {
   margin-top: 10px;
   gap: 5px;
   .card {
-    min-width: 190px;
+    width: 190px;
     padding: 10px;
     gap: 10px;
     display: flex;
@@ -54,6 +54,7 @@ export default {
     box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
     transition: all 0.3s ease-in-out;
     .title {
+      text-align: center;
       font-size: 16px;
       color: var(--color-4);
       filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));

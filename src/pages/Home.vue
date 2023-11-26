@@ -57,7 +57,7 @@
     </section>
     <section class="services">
       <div class="content">
-        <h1>Parceiros</h1>
+        <h1>Serviços</h1>
         <Services />
       </div>
     </section>
@@ -171,8 +171,6 @@ export default {
     .blog {
       .cards {
         justify-content: space-between;
-        .card {
-        }
       }
     }
   }

@@ -55,5 +55,17 @@
         "Cuidados"
       ]
     }
+  },
+  "services": {
+    "Adoção": [
+      "Adopets",
+      "Peludinhos",
+      "Amor Animal"
+    ],
+    "Petshop": [],
+    "Clinica Veterinaria": [],
+    "Hotel": [],
+    "Adestramento": [],
+    "Dog Walker": []
   }
 }

@@ -55,16 +55,24 @@
         </div>
       </div>
     </section>
+    <section class="services">
+      <div class="content">
+        <h1>Parceiros</h1>
+        <Services />
+      </div>
+    </section>
   </div>
 </template>
 <script>
 import Banner from "../components/Banner.vue";
 import Card from "../components/Card.vue";
+import Services from "../components/Services.vue";
 import axios from "axios";
 export default {
   components: {
     Banner,
     Card,
+    Services,
   },
   data() {
     return {
@@ -140,6 +148,9 @@ export default {
         }
       }
     }
+  }
+  .services {
+    padding: 10px 0px;
   }
 }
 @media (min-width: 600px) {

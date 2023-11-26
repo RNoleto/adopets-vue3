@@ -57,15 +57,23 @@
     }
   },
   "services": {
-    "Adoção": [
-      "Adopets",
-      "Peludinhos",
-      "Amor Animal"
-    ],
-    "Petshop": [],
-    "Clinica Veterinaria": [],
-    "Hotel": [],
-    "Adestramento": [],
-    "Dog Walker": []
+    "Adoção": {
+      "icon": "src/assets/icons/adoption.svg"
+    },
+    "Petshop": {
+      "icon": "src/assets/icons/petshop.svg"
+    },
+    "Clinica Veterinaria": {
+      "icon": "src/assets/icons/pet-veterinary.svg"
+    },
+    "Hotel": {
+      "icon": "src/assets/icons/hotel.svg"
+    },
+    "Adestramento": {
+      "icon": "src/assets/icons/dog-training.svg"
+    },
+    "Dog Walker": {
+      "icon": "src/assets/icons/dog-walker.svg"
+    }
   }
 }

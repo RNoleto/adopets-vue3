@@ -1,11 +1,12 @@
 <template>
-  <div
-    class="services"
-    v-for="(service, serviceName) in services"
-    :key="serviceName"
-  >
-    <div class="card">
+  <div class="services">
+    <div
+      v-for="(service, serviceName) in services"
+      :key="serviceName"
+      class="card"
+    >
       <p class="title">{{ serviceName }}</p>
+      <img :src="service.icon" alt="" class="icon" />
     </div>
   </div>
 </template>
@@ -24,7 +25,6 @@ export default {
       .get("src/api/adoption.json")
       .then((response) => {
         this.services = response.data.services;
-        console.log("Serviços carregados:", this.services);
       })
       .catch((error) => {
         console.log("Erro ao carregar lista de serviços:", error);
@@ -37,20 +37,26 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  justify-content: space-between;
   margin-top: 10px;
+  gap: 5px;
   .card {
-    width: 100%;
+    min-width: 190px;
     padding: 10px;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
     align-items: center;
     background-color: var(--color-1);
     border-radius: 15px;
     box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
     .title {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--color-4);
+    }
+    .icon {
+      width: 65px;
     }
   }
 }

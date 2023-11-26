@@ -66,6 +66,16 @@ export default {
 <style lang="scss" scoped>
 .page {
   padding: 0px 10px;
+  .title,
+  .subtitle {
+    text-align: center;
+  }
+  .title {
+    line-height: 35px;
+  }
+  .subtitle {
+    transform: translateY(0px);
+  }
   .cards {
     margin-top: 10px;
     width: 100%;

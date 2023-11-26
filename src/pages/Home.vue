@@ -116,18 +116,19 @@ export default {
   .blog {
     padding: 10px 0px;
     .cards {
-      width: 100%;
+      margin-top: 10px;
+      max-width: 100%;
       display: flex;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 1rem;
       .card {
-        max-width: 400px;
+        width: 350px;
         height: auto;
         display: flex;
         flex-direction: column;
         gap: 10px;
         background-color: var(--color-3);
-        // padding: 20px 10px;
         color: var(--color-4);
         border-radius: 15px;
         box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
@@ -136,6 +137,30 @@ export default {
           height: auto;
           border-radius: 0px 0px 15px 15px;
           box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
+        }
+      }
+    }
+  }
+}
+@media (min-width: 600px) {
+  .container {
+    .blog {
+      .cards {
+        justify-content: center;
+        .card {
+          width: 380px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1210px) {
+  .container {
+    .blog {
+      .cards {
+        justify-content: space-between;
+        .card {
         }
       }
     }

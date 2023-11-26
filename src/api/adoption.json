@@ -6,14 +6,14 @@
         "breed": "Corgi",
         "size": "Pequeno",
         "age": "6 meses",
-        "img": "src/assets/img/dog1.webp"
+        "img": "assets/img/dog1.webp"
       },
       {
         "name": "Manhosa",
         "breed": "Buldog",
         "size": "Porte",
         "age": "Idade",
-        "img": "src/assets/img/dog2.webp"
+        "img": "assets/img/dog2.webp"
       }
     ],
     "cat": [
@@ -22,14 +22,14 @@
         "breed": "Raça",
         "size": "Porte",
         "age": "Idade",
-        "img": "src/assets/img/cat1.webp"
+        "img": "assets/img/cat1.webp"
       },
       {
         "name": "Pelúcio",
         "breed": "Raça",
         "size": "Porte",
         "age": "Idade",
-        "img": "src/assets/img/cat2.webp"
+        "img": "assets/img/cat2.webp"
       }
     ]
   },
@@ -38,29 +38,29 @@
       "title": "Guia Completo para Adoção de Animais",
       "subtitule": "Como Encontrar seu Amigo Peludo Perfeito",
       "date": "2023-11-26",
-      "img": "src/assets/img/posts/post1.webp",
+      "img": "assets/img/posts/post1.webp",
       "resume": "Adotar um animal de estimação é uma decisão significativa e gratificante. Se você está pensando em dar um lar amoroso a um amigo peludo, este guia abrangente ajudará você a entender o processo de adoção e fornecerá dicas valiosas para garantir uma transição suave para seu novo membro da família.",
       "tags": []
     }
   },
   "services": {
     "Adoção": {
-      "icon": "src/assets/icons/adoption.svg"
+      "icon": "assets/icons/adoption.svg"
     },
     "Petshop": {
-      "icon": "src/assets/icons/petshop.svg"
+      "icon": "assets/icons/petshop.svg"
     },
     "Clinica Veterinaria": {
-      "icon": "src/assets/icons/pet-veterinary.svg"
+      "icon": "assets/icons/pet-veterinary.svg"
     },
     "Hotel": {
-      "icon": "src/assets/icons/hotel.svg"
+      "icon": "assets/icons/hotel.svg"
     },
     "Adestramento": {
-      "icon": "src/assets/icons/dog-training.svg"
+      "icon": "assets/icons/dog-training.svg"
     },
     "Dog Walker": {
-      "icon": "src/assets/icons/dog-walker.svg"
+      "icon": "assets/icons/dog-walker.svg"
     }
   }
 }

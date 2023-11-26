@@ -7,7 +7,7 @@
       <div class="cards">
         <Card class="card" v-for="(post, index) in sortedPosts" :key="index">
           <template v-slot:image>
-            <img :src="post.img" :alt="post.title" />
+            <img class="card-image" :src="post.img" :alt="post.title" />
           </template>
           <template v-slot:title>{{ post.title }}</template>
           <template v-slot:date>{{ formatBrasilianDate(post.date) }}</template>
@@ -90,6 +90,12 @@ export default {
       display: flex;
       flex-wrap: wrap;
       background-color: var(--color-3);
+      &-image {
+        width: 100%;
+        height: auto;
+        border-radius: 0px 0px 15px 15px;
+        box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
+      }
     }
   }
 }

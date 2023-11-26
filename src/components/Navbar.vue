@@ -26,6 +26,9 @@
       <li class="menu-mobile">
         <router-link to="/about" @click="closeNav">Quem Somos</router-link>
       </li>
+      <li class="menu-mobile">
+        <router-link to="/posts" @click="closeNav">Posts</router-link>
+      </li>
     </ul>
   </nav>
 </template>

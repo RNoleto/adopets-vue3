@@ -35,25 +35,12 @@
   },
   "posts": {
     "1": {
-      "title": "Será que meu pet gosta de mim?",
-      "date": "2023-11-12",
+      "title": "Guia Completo para Adoção de Animais",
+      "subtitule": "Como Encontrar seu Amigo Peludo Perfeito",
+      "date": "2023-11-26",
       "img": "src/assets/img/posts/post1.webp",
-      "resume": "Ah, a eterna pergunta que todos os donos de animais de estimação já se fizeram pelo menos uma vez na vida. Afinal, quem nunca olhou nos olhinhos pidões do seu bichinho e se perguntou: \"Será que ele me ama ou só quer a ração?\"",
-      "tags": [
-        "Engraçado",
-        "Informativo",
-        "Curiosidade"
-      ]
-    },
-    "2": {
-      "title": "Cuidados com seu pet.",
-      "date": "2023-11-13",
-      "img": "src/assets/img/posts/post2.webp",
-      "resume": "\"Cuidados com Seu Pet\" oferece insights essenciais sobre a responsabilidade e carinho necessários para garantir a saúde e felicidade do seu animal de estimação.",
-      "tags": [
-        "Informativo",
-        "Cuidados"
-      ]
+      "resume": "Adotar um animal de estimação é uma decisão significativa e gratificante. Se você está pensando em dar um lar amoroso a um amigo peludo, este guia abrangente ajudará você a entender o processo de adoção e fornecerá dicas valiosas para garantir uma transição suave para seu novo membro da família.",
+      "tags": []
     }
   },
   "services": {

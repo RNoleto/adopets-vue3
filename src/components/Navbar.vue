@@ -2,7 +2,7 @@
   <nav>
     <div class="adopets">
       <router-link class="link" to="/">
-        <img src="../assets/img/logo.png" alt="logo" class="logo" />
+        <img src="assets/img/logo.png" alt="logo" class="logo" />
         <h1 class="title">Adopets</h1>
       </router-link>
     </div>
@@ -25,6 +25,9 @@
       </li>
       <li class="menu-mobile">
         <router-link to="/about" @click="closeNav">Quem Somos</router-link>
+      </li>
+      <li class="menu-mobile">
+        <router-link to="/posts" @click="closeNav">Posts</router-link>
       </li>
     </ul>
   </nav>

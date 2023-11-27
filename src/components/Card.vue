@@ -45,7 +45,7 @@ export default {
 .card {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
   &-content {
     display: flex;
     flex-direction: column;

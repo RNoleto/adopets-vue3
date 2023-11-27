@@ -43,6 +43,10 @@ html {
   scroll-behavior: smooth;
 }
 
+main {
+  min-height: 650px;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--color-3);

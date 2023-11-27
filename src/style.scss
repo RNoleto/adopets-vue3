@@ -32,7 +32,7 @@ a {
 
   // fonts
   --title-font-size: 1.875rem;
-  --subtitle-font-size: 1rem;
+  --subtitle-font-size: 0.9rem;
 
   --title-font: 'Poppins', sans-serif;
   --body-font: 'DM Sans', sans-serif;
@@ -65,9 +65,11 @@ h1 {
 }
 
 .subtitle {
+  transform: translateY(-5px);
   font: 300 var(--subtitle-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;
+  font-style: italic;
 }
 
 img {
@@ -87,4 +89,18 @@ h1 {
 .content {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.page {
+  min-height: 410px;
+}
+
+// Cards em Posts
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.date {
+  font-size: 12px;
 }

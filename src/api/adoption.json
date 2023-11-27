@@ -1,34 +1,66 @@
 {
-  "dog": [
-    {
-      "name": "Bolinha",
-      "breed": "Corgi",
-      "size": "Pequeno",
-      "age": "6 meses",
-      "img": "../assets/img/dog1.webp"
-    },
-    {
-      "name": "Manhosa",
-      "breed": "Buldog",
-      "size": "Porte",
-      "age": "Idade",
-      "img": "../assets/img/dog2.webp"
+  "adoption": {
+    "dog": [
+      {
+        "name": "Bolinha",
+        "breed": "Corgi",
+        "size": "Pequeno",
+        "age": "6 meses",
+        "img": "assets/img/dog1.webp"
+      },
+      {
+        "name": "Manhosa",
+        "breed": "Buldog",
+        "size": "Porte",
+        "age": "Idade",
+        "img": "assets/img/dog2.webp"
+      }
+    ],
+    "cat": [
+      {
+        "name": "Mingau",
+        "breed": "Raça",
+        "size": "Porte",
+        "age": "Idade",
+        "img": "assets/img/cat1.webp"
+      },
+      {
+        "name": "Pelúcio",
+        "breed": "Raça",
+        "size": "Porte",
+        "age": "Idade",
+        "img": "assets/img/cat2.webp"
+      }
+    ]
+  },
+  "posts": {
+    "1": {
+      "title": "Guia Completo para Adoção de Animais",
+      "subtitule": "Como Encontrar seu Amigo Peludo Perfeito",
+      "date": "2023-11-26",
+      "img": "assets/img/posts/post1.webp",
+      "resume": "Adotar um animal de estimação é uma decisão significativa e gratificante. Se você está pensando em dar um lar amoroso a um amigo peludo, este guia abrangente ajudará você a entender o processo de adoção e fornecerá dicas valiosas para garantir uma transição suave para seu novo membro da família.",
+      "tags": []
     }
-  ],
-  "cat": [
-    {
-      "name": "Mingau",
-      "breed": "Raça",
-      "size": "Porte",
-      "age": "Idade",
-      "img": "../assets/img/cat1.webp"
+  },
+  "services": {
+    "Adoção": {
+      "icon": "assets/icons/adoption.svg"
     },
-    {
-      "name": "Pelúcio",
-      "breed": "Raça",
-      "size": "Porte",
-      "age": "Idade",
-      "img": "../assets/img/cat2.webp"
+    "Petshop": {
+      "icon": "assets/icons/petshop.svg"
+    },
+    "Clinica Veterinaria": {
+      "icon": "assets/icons/pet-veterinary.svg"
+    },
+    "Hotel": {
+      "icon": "assets/icons/hotel.svg"
+    },
+    "Adestramento": {
+      "icon": "assets/icons/dog-training.svg"
+    },
+    "Dog Walker": {
+      "icon": "assets/icons/dog-walker.svg"
     }
-  ]
+  }
 }

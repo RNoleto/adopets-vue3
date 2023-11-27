@@ -1,21 +1,16 @@
 import { defineConfig } from 'vite'
-import { createVuePlugin } from 'vite-plugin-vue'
 import vue from '@vitejs/plugin-vue'
-
-import vueRouter from '@intlify/vite-plugin-vue-i18n'
-import path from 'path'
+import { fileURLToPath, URL } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueRouter(),
-    createVuePlugin(),
-  ],
-
+  plugins: [vue()],
   resolve: {
     alias: {
-      '/@/pages': path.resolve(__dirname, 'src/pages'),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     }
+  },
+  server: {
+    port: 8080
   }
 })

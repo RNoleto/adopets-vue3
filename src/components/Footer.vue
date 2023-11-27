@@ -1,91 +1,184 @@
 <template>
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-logo">
-          <img src="./assets/logo.png" alt="Logo" />
-          <p>Sua empresa</p>
-        </div>
-        <div class="footer-links">
-          <ul>
-            <li><router-link to="/">Home</router-link></li>
-            <li><router-link to="/about">Sobre Nós</router-link></li>
-            <!-- Adicione mais links conforme necessário -->
-          </ul>
-        </div>
-        <div class="footer-social">
-          <h4>Nos siga nas redes sociais</h4>
-          <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-      </div>
+  <nav>
+    <div class="adopets">
+      <router-link class="link" to="/">
+        <img src="../assets/img/logo.png" alt="logo" class="logo" />
+        <h1 class="title">Adopets</h1>
+      </router-link>
     </div>
-  </footer>
+    <!-- Menu Mobile -->
+    <div class="navbar-toggle" @click="toggleNav">
+      <div class="bar"></div>
+      <div class="bar"></div>
+      <div class="bar"></div>
+    </div>
+    <ul
+      :class="{
+        'nav-links-open animate__animated': isNavOpen,
+        animate__fadeInRight: isNavOpen,
+        animate__fadeOutRight: isClosing,
+      }"
+    >
+      <div class="btn-close" @click="closeNav"></div>
+      <li class="menu-mobile">
+        <router-link to="/" @click="closeNav">Home</router-link>
+      </li>
+      <li class="menu-mobile">
+        <router-link to="/about" @click="closeNav">Quem Somos</router-link>
+      </li>
+      <li class="menu-mobile">
+        <router-link to="/posts" @click="closeNav">Posts</router-link>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script>
+import "animate.css";
 export default {
-  name: "Footer",
+  name: "Navbar",
+  data() {
+    return {
+      isNavOpen: false,
+      isClosing: false,
+    };
+  },
+  methods: {
+    toggleNav() {
+      this.isNavOpen = !this.isNavOpen;
+      this.isClosing = false;
+      this.toggleBodyScroll();
+    },
+    closeNav() {
+      if (this.isNavOpen) {
+        this.isClosing = true;
+
+        setTimeout(() => {
+          this.isNavOpen = false;
+          this.isClosing = false;
+          this.toggleBodyScroll();
+        }, 300);
+      }
+    },
+    toggleBodyScroll() {
+      if (this.isNavOpen) {
+        document.body.style.overflow = "hidden";
+        document.body.addEventListener("touchmove", this.preventScroll, {
+          passive: false,
+        });
+      } else {
+        document.body.style.overflow = "";
+        document.body.removeEventListener("touchmove", this.preventScroll, {
+          passive: false,
+        });
+      }
+    },
+    preventScroll(e) {
+      e.preventDefault();
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.footer {
-  background-color: #333;
-  color: #fff;
-  padding: 2rem 0;
+nav {
+  background-color: #808080;
+  color: var(--color-4);
+  padding: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-4);
 
-  .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-
-    .footer-logo {
-      img {
+  .adopets {
+    .link {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      .logo {
         width: 60px;
       }
     }
+  }
 
-    .footer-links {
-      ul {
-        list-style: none;
-        padding: 0;
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    .bar {
+      background-color: var(--color-4);
+      height: 2px;
+      width: 25px;
+      margin: 4px 0;
+      transition: transform 0.4s;
+    }
+  }
 
-        li {
-          margin-bottom: 10px;
-          a {
-            text-decoration: none;
-            color: #fff;
-          }
-        }
-      }
+  ul {
+    list-style: none;
+    display: flex;
+    .btn-close {
+      display: none;
     }
 
-    .footer-social {
-      text-align: right;
+    li {
+      margin-right: 1rem;
+    }
 
-      h4 {
-        margin-bottom: 10px;
+    &.nav-links-open {
+      flex-direction: column;
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      top: 0px;
+      right: 0px;
+      background-color: var(--color-3);
+      box-shadow: -3px 0px 5px rgba($color: #000000, $alpha: 25);
+      padding: 1rem;
+      display: none;
+      z-index: 1;
+      li {
+        color: var(--color-4);
+        margin: 0;
+        margin-bottom: 1rem;
       }
+    }
+  }
 
-      .social-icons {
-        a {
-          font-size: 24px;
-          margin-right: 10px;
-          color: #fff;
-          text-decoration: none;
+  @media (max-width: 768px) {
+    .navbar-toggle {
+      display: flex;
+    }
+
+    ul {
+      display: none;
+
+      &.nav-links-open {
+        padding: 100px 0px;
+        display: flex;
+        .btn-close {
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          font-weight: 600;
+          padding: 10px;
+          background-color: transparent;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &::before {
+            content: "X";
+            font-size: 18px;
+            clip-path: circle();
+            color: var(--color-3);
+            background-color: var(--color-4);
+            padding: 5px;
+          }
+        }
+        .menu-mobile {
+          padding: 1rem;
+          text-align: center;
         }
       }
     }

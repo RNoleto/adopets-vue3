@@ -1,10 +1,9 @@
 <template>
-
-  <div class="content">
-    <main>
-      <Navbar />
+  <Navbar />
+  <div class="container">
+    <div class="content page">
       <h1>Página About</h1>
-    </main>
+    </div>
   </div>
 </template>
 <script>

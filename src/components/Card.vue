@@ -33,6 +33,10 @@ export default {
       type: String,
       default: "Default Description",
     },
+    date: {
+      type: String,
+      default: "dd/mm/aaaa",
+    },
   },
   methods: {
     handleButtonClick() {
@@ -45,6 +49,7 @@ export default {
 .card {
   border-radius: 8px;
   overflow: hidden;
+  background-color: var(--color-3);
   box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
   &-content {
     display: flex;
@@ -53,9 +58,11 @@ export default {
     padding: 10px 10px;
   }
   &-title {
+    color: var(--color-4);
     font-size: 18px;
   }
   &-date {
+    color: var(--color-4);
     font-size: 12px;
     transform: translateY(-5px);
   }

@@ -3,14 +3,24 @@
   <div class="container">
     <div class="content page">
       <h1 class="title">Página de Posts</h1>
-      <Card class="card" v-for="(post, index) in posts" :key="index">
+      <Card
+        class="card"
+        v-for="(post, index) in posts"
+        :key="index"
+        :url="post.url"
+      >
+        {{ console.log("Post URL:", post.url) }}
         <template v-slot:image>
           <img class="card-image" :src="post.img" :alt="post.title" />
         </template>
         <template v-slot:title>{{ post.title }}</template>
         <template v-slot:date>{{ formatBrazilianDate(post.date) }}</template>
         <template v-slot:description>{{ post.resume }}</template>
-        <template v-slot:button></template>
+        <template v-slot:button>
+          <button @click="navigateToPost(post.url)" v-if="post.url">
+            Ver Mais
+          </button>
+        </template>
       </Card>
     </div>
   </div>
@@ -39,13 +49,15 @@ export default {
       const year = dateObj.getFullYear();
       return `${day}/${month}/${year}`;
     },
+    navigateToPost(postUrl) {
+      this.$router.push({ name: "PostPage", params: { url: postUrl } });
+    },
   },
   mounted() {
     axios
       .get("src/api/adoption.json")
       .then((response) => {
         this.posts = response.data.posts;
-        console.log("Dados carregado do Json:", this.posts);
       })
       .catch((error) => {
         console.log("Erro ao carregar posts:", error);

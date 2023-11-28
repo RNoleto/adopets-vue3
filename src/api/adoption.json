@@ -33,8 +33,9 @@
       }
     ]
   },
-  "posts": {
-    "1": {
+  "posts": [
+    {
+      "url": "guia-completo-para-adocao-de-animais",
       "title": "Guia Completo para Adoção de Animais",
       "subtitule": "Como Encontrar seu Amigo Peludo Perfeito",
       "date": "2023-11-26",
@@ -42,7 +43,7 @@
       "resume": "Adotar um animal de estimação é uma decisão significativa e gratificante. Se você está pensando em dar um lar amoroso a um amigo peludo, este guia abrangente ajudará você a entender o processo de adoção e fornecerá dicas valiosas para garantir uma transição suave para seu novo membro da família.",
       "tags": []
     }
-  },
+  ],
   "services": {
     "Adoção": {
       "icon": "src/assets/icons/adoption.svg"

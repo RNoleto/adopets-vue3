@@ -16,7 +16,12 @@
       </p>
       <div class="card-button">
         <slot name="button">
-          <div class="btn" @click="handleButtonClick">Ver Mais</div>
+          <router-link
+            v-if="shouldShowButton"
+            :to="{ name: 'PostPage', params: { url } }"
+          >
+            <div class="btn">Ver Mais</div>
+          </router-link>
         </slot>
       </div>
     </div>
@@ -37,10 +42,17 @@ export default {
       type: String,
       default: "dd/mm/aaaa",
     },
+    url: {
+      type: String,
+      default: "",
+    },
   },
-  methods: {
-    handleButtonClick() {
-      console.log("Botão 'Ver Mais' clicado!");
+  computed: {
+    shouldShowButton() {
+      console.log("URL in shouldShowButton:", this.url);
+      const result = Boolean(this.url);
+      console.log("Result in shouldShowButton:", result);
+      return result;
     },
   },
 };

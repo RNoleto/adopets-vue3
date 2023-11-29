@@ -4,9 +4,16 @@
     <div class="content page">
       <div class="post">
         <h1 class="title">{{ post.title }}</h1>
+        <p class="subtitle">{{ post.subtitle }}</p>
         <p>{{ post.date }}</p>
         <img :src="post.img" :alt="post.title" />
-        <p>{{ post.resume }}</p>
+        <div
+          class="paragraph"
+          v-for="paragraph in post.content"
+          :key="paragraph"
+        >
+          <p>{{ paragraph }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -46,3 +53,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  .content {
+    .post {
+      .paragraph {
+      }
+    }
+  }
+}
+</style>

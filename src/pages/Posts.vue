@@ -3,25 +3,26 @@
   <div class="container">
     <div class="content page">
       <h1 class="title">Página de Posts</h1>
-      <Card
-        class="card"
-        v-for="(post, index) in posts"
-        :key="index"
-        :url="post.url"
-      >
-        {{ console.log("Post URL:", post.url) }}
-        <template v-slot:image>
-          <img class="card-image" :src="post.img" :alt="post.title" />
-        </template>
-        <template v-slot:title>{{ post.title }}</template>
-        <template v-slot:date>{{ formatBrazilianDate(post.date) }}</template>
-        <template v-slot:description>{{ post.resume }}</template>
-        <template v-slot:button>
-          <button @click="navigateToPost(post.url)" v-if="post.url">
-            Ver Mais
-          </button>
-        </template>
-      </Card>
+      <div class="cards">
+        <Card
+          class="card"
+          v-for="(post, index) in posts"
+          :key="index"
+          :url="post.url"
+        >
+          <template v-slot:image>
+            <img class="card-image" :src="post.img" :alt="post.title" />
+          </template>
+          <template v-slot:title>{{ post.title }}</template>
+          <template v-slot:date>{{ formatBrazilianDate(post.date) }}</template>
+          <template v-slot:description>{{ post.resume }}</template>
+          <template v-slot:button>
+            <div class="btn" @click="navigateToPost(post.url)" v-if="post.url">
+              Ver Mais
+            </div>
+          </template>
+        </Card>
+      </div>
     </div>
   </div>
 </template>
@@ -70,13 +71,40 @@ export default {
 .container {
   .content {
     padding: 0px 10px;
-    .card {
-      background-color: var(--color-3);
-      &-image {
-        width: 100%;
-        height: auto;
-        border-radius: 0px 0px 15px 15px;
-        box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
+    .cards {
+      .card {
+        background-color: var(--color-3);
+        &-image {
+          width: 100%;
+          height: auto;
+          border-radius: 0px 0px 15px 15px;
+          box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
+        }
+        .btn {
+          background-color: var(--color-1);
+          color: #fff;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          text-align: center;
+          &-hover {
+            background-color: var(--color-2);
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 600px) {
+  .container {
+    .content {
+      .cards {
+        justify-content: center;
+        .card {
+          width: 380px;
+        }
       }
     }
   }

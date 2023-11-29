@@ -1,9 +1,11 @@
 <template>
+  <Navbar />
   <div class="container">
     <div class="content page">
-      <h1>Página individual de cada post</h1>
       <div class="post">
         <h1 class="title">{{ post.title }}</h1>
+        <p>{{ post.date }}</p>
+        <img :src="post.img" :alt="post.title" />
         <p>{{ post.resume }}</p>
       </div>
     </div>
@@ -11,9 +13,13 @@
 </template>
 
 <script>
+import Navbar from "@/components/Navbar.vue";
 import axios from "axios";
 
 export default {
+  components: {
+    Navbar,
+  },
   name: "PostPage",
   data() {
     return {
@@ -32,7 +38,6 @@ export default {
         .then((response) => {
           const posts = response.data.posts;
           this.post = posts.find((post) => post.url === url) || {};
-          console.log("Dados do post encontrado:", this.post);
         })
         .catch((error) => {
           console.log("Erro ao carregar post:", error);

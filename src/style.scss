@@ -18,7 +18,7 @@ a {
   color: var(--color-4);
 
   &:hover {
-    color: var(--color-1);
+    color: var(--color-2);
   }
 }
 
@@ -61,7 +61,6 @@ h1 {
 }
 
 .subtitle {
-  transform: translateY(-5px);
   font: 300 var(--subtitle-font-size) var(--title-font);
   color: var(--title-color);
   -webkit-font-smoothing: auto;

@@ -5,14 +5,12 @@
       <div class="post">
         <h1 class="title">{{ post.title }}</h1>
         <p class="subtitle">{{ post.subtitle }}</p>
-        <p>{{ post.date }}</p>
+        <p class="date">{{ post.date }}</p>
         <img :src="post.img" :alt="post.title" />
-        <div
-          class="paragraph"
-          v-for="paragraph in post.content"
-          :key="paragraph"
-        >
-          <p>{{ paragraph }}</p>
+        <div class="paragraphs">
+          <p v-for="paragraph in post.content" :key="paragraph">
+            {{ paragraph }}
+          </p>
         </div>
       </div>
     </div>
@@ -57,8 +55,46 @@ export default {
 <style lang="scss" scoped>
 .container {
   .content {
+    padding: 0px 10px;
     .post {
-      .paragraph {
+      display: flex;
+      flex-direction: column;
+      .title {
+        font-size: 18px;
+      }
+      .subtitle {
+        font-size: 14px;
+      }
+
+      img {
+        margin: 10px 0px;
+        width: 100%;
+      }
+      .paragraphs {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        p {
+          text-align: justify;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 600px) {
+  .container {
+    padding: 2rem 0rem;
+    .content {
+      .post {
+        .title {
+          font-size: 24px;
+        }
+        img {
+          height: 350px;
+          object-fit: cover;
+          object-position: center;
+        }
       }
     }
   }

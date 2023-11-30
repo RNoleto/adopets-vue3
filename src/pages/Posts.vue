@@ -72,7 +72,15 @@ export default {
   .content {
     padding: 0px 10px;
     .cards {
+      margin-top: 10px;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
       .card {
+        width: 100%;
+        max-width: 380px;
         background-color: var(--color-3);
         &-image {
           width: 100%;
@@ -101,10 +109,18 @@ export default {
   .container {
     .content {
       .cards {
-        justify-content: center;
-        .card {
-          width: 380px;
-        }
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    .content {
+      .cards {
+        justify-content: space-between;
       }
     }
   }

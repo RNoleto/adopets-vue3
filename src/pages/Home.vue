@@ -50,7 +50,15 @@
               </p></template
             >
             <template v-slot:description>{{ post.resume }}</template>
-            <template v-slot:button> </template>
+            <template v-slot:button>
+              <div
+                class="btn"
+                @click="navigateToPost(post.url)"
+                v-if="post.url"
+              >
+                Ver Mais
+              </div>
+            </template>
           </Card>
         </div>
       </div>
@@ -95,6 +103,9 @@ export default {
       const year = dateObj.getFullYear();
       return `${day}/${month}/${year}`;
     },
+    navigateToPost(postUrl) {
+      this.$router.push({ name: "PostPage", params: { url: postUrl } });
+    },
   },
   created() {
     axios
@@ -131,7 +142,8 @@ export default {
       flex-wrap: wrap;
       gap: 1rem;
       .card {
-        width: 350px;
+        width: 100%;
+        max-width: 380px;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -146,6 +158,19 @@ export default {
           border-radius: 0px 0px 15px 15px;
           box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
         }
+        .btn {
+          background-color: var(--color-1);
+          color: #fff;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          text-align: center;
+          &-hover {
+            background-color: var(--color-2);
+          }
+        }
       }
     }
   }
@@ -158,9 +183,6 @@ export default {
     .blog {
       .cards {
         justify-content: center;
-        .card {
-          width: 380px;
-        }
       }
     }
   }

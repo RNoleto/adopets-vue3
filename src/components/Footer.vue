@@ -2,7 +2,7 @@
   <div class="container">
     <div class="content">
       <router-link class="link" to="/">
-        <img src="../assets/img/logo.png" alt="logo" class="logo" />
+        <img src="assets/img/logo.png" alt="logo" class="logo" />
         <h1 class="title">Adopets</h1>
       </router-link>
       <Socials />

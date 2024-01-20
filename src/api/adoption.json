@@ -33,16 +33,29 @@
       }
     ]
   },
-  "posts": {
-    "1": {
+  "posts": [
+    {
+      "url": "guia-completo-para-adocao-de-animais",
       "title": "Guia Completo para Adoção de Animais",
-      "subtitule": "Como Encontrar seu Amigo Peludo Perfeito",
+      "subtitle": "Como Encontrar seu Amigo Peludo Perfeito",
       "date": "2023-11-26",
-      "img": "assets/img/posts/post1.webp",
+
+      "img": "../assets/img/posts/post1.webp",
+
       "resume": "Adotar um animal de estimação é uma decisão significativa e gratificante. Se você está pensando em dar um lar amoroso a um amigo peludo, este guia abrangente ajudará você a entender o processo de adoção e fornecerá dicas valiosas para garantir uma transição suave para seu novo membro da família.",
+      "content": [
+        "Adotar um animal de estimação é uma decisão emocionante, mas também uma escolha importante que impactará sua vida diária. Antes de começarmos, é crucial refletir sobre sua disposição e capacidade de cuidar de um novo membro peludo na sua família. Pergunte a si mesmo: \"Estou pronto para esse compromisso?\"",
+        "Ao iniciar o processo de adoção, a pesquisa é fundamental. Explore abrigos locais, organizações de resgate e grupos de adoção. Esses lugares são o lar de animais incríveis, ansiosos por uma segunda chance na vida. Ao visitar esses locais, você terá a oportunidade de interagir com diferentes animais e começar a identificar aquele que se encaixa no seu estilo de vida.",
+        "Ao escolher um animal, leve em consideração as necessidades específicas de cada espécie e raça. Alguns requerem mais exercício, enquanto outros podem ser mais independentes. Pergunte a si mesmo: \"Essas necessidades se alinham com a minha rotina diária?\"",
+        "A interatividade é a chave. Dedique tempo para conhecer os animais em consideração. Observe seu comportamento, sua personalidade única, e veja como eles respondem à sua presença. Essa etapa é crucial para construir uma conexão genuína.",
+        "Antes de tomar a decisão final, consulte profissionais, como veterinários e treinadores de animais. Eles podem oferecer insights valiosos sobre as necessidades específicas de cada animal, ajudando você a tomar uma decisão informada.",
+        "Quando encontrar o amigo peludo perfeito, siga o processo de adoção estabelecido pela instituição. Isso pode envolver preenchimento de formulários, entrevistas e verificações de antecedentes. Lembre-se, essas medidas existem para garantir o bem-estar do animal.",
+        "Antes da chegada do seu novo amigo, prepare sua casa para garantir um ambiente seguro e acolhedor. Esteja pronto para dedicar tempo inicial à adaptação e ao estabelecimento de laços.",
+        "Lembre-se, a jornada de adoção é uma via de mão dupla. Seja paciente e consistente durante a adaptação do seu novo amigo. Com amor, paciência e cuidado, você construirá uma amizade duradoura e recompensadora. Afinal, ao escolher adotar, você não apenas ganha um animal de estimação, mas também um membro leal e amoroso para a sua família."
+      ],
       "tags": []
     }
-  },
+  ],
   "services": {
     "Adoção": {
       "icon": "assets/icons/adoption.svg"

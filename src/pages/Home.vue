@@ -50,7 +50,15 @@
               </p></template
             >
             <template v-slot:description>{{ post.resume }}</template>
-            <template v-slot:button> </template>
+            <template v-slot:button>
+              <div
+                class="btn"
+                @click="navigateToPost(post.url)"
+                v-if="post.url"
+              >
+                Ver Mais
+              </div>
+            </template>
           </Card>
         </div>
       </div>
@@ -64,9 +72,10 @@
   </div>
 </template>
 <script>
-import Banner from "/src/components/Banner.vue";
-import Card from "/src/components/Card.vue";
-import Services from "/src/components/Services.vue";
+import Banner from "@/components/Banner.vue";
+import Card from "@/components/Card.vue";
+import Services from "@/components/Services.vue";
+
 import axios from "axios";
 export default {
   components: {
@@ -94,6 +103,9 @@ export default {
       const month = (dateObj.getMonth() + 1).toString().padStart(2, "0");
       const year = dateObj.getFullYear();
       return `${day}/${month}/${year}`;
+    },
+    navigateToPost(postUrl) {
+      this.$router.push({ name: "PostPage", params: { url: postUrl } });
     },
   },
   created() {
@@ -131,7 +143,8 @@ export default {
       flex-wrap: wrap;
       gap: 1rem;
       .card {
-        width: 350px;
+        width: 100%;
+        max-width: 380px;
         height: auto;
         display: flex;
         flex-direction: column;
@@ -146,6 +159,19 @@ export default {
           border-radius: 0px 0px 15px 15px;
           box-shadow: 3px 3px 5px rgba($color: #000000, $alpha: 0.25);
         }
+        .btn {
+          background-color: var(--color-1);
+          color: #fff;
+          padding: 8px 16px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          text-align: center;
+          &-hover {
+            background-color: var(--color-2);
+          }
+        }
       }
     }
   }
@@ -158,9 +184,6 @@ export default {
     .blog {
       .cards {
         justify-content: center;
-        .card {
-          width: 380px;
-        }
       }
     }
   }

@@ -16,7 +16,12 @@
       </p>
       <div class="card-button">
         <slot name="button">
-          <div class="btn" @click="handleButtonClick">Ver Mais</div>
+          <router-link
+            v-if="shouldShowButton"
+            :to="{ name: 'PostPage', params: { url } }"
+          >
+            <div class="btn">Ver Mais</div>
+          </router-link>
         </slot>
       </div>
     </div>
@@ -33,10 +38,21 @@ export default {
       type: String,
       default: "Default Description",
     },
+    date: {
+      type: String,
+      default: "dd/mm/aaaa",
+    },
+    url: {
+      type: String,
+      default: "",
+    },
   },
-  methods: {
-    handleButtonClick() {
-      console.log("Botão 'Ver Mais' clicado!");
+  computed: {
+    shouldShowButton() {
+      console.log("URL in shouldShowButton:", this.url);
+      const result = Boolean(this.url);
+      console.log("Result in shouldShowButton:", result);
+      return result;
     },
   },
 };
@@ -45,7 +61,9 @@ export default {
 .card {
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25);
+  background-color: var(--color-3);
+  box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
+
   &-content {
     display: flex;
     flex-direction: column;
@@ -53,9 +71,11 @@ export default {
     padding: 10px 10px;
   }
   &-title {
+    color: var(--color-4);
     font-size: 18px;
   }
   &-date {
+    color: var(--color-4);
     font-size: 12px;
     transform: translateY(-5px);
   }

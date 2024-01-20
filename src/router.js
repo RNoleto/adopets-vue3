@@ -4,6 +4,8 @@ import { createRouter, createWebHistory } from 'vue-router';
 import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Posts from './pages/Posts.vue';
+import PostPage from './pages/PostPage.vue';
+
 
 const routes = [
   {
@@ -18,6 +20,14 @@ const routes = [
     path: '/posts',
     component: Posts,
   },
+  //Pagina individual de cada post
+  {
+    path: '/post/:url',
+    name: 'PostPage',
+    component: () => import('@/pages/PostPage.vue'), // Use `import` aqui
+    props: true,
+  },
+
   {
     path: '/:catchAll(.*)',
     redirect: '/',

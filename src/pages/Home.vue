@@ -75,6 +75,7 @@
 import Banner from "@/components/Banner.vue";
 import Card from "@/components/Card.vue";
 import Services from "@/components/Services.vue";
+
 import axios from "axios";
 export default {
   components: {
@@ -192,7 +193,7 @@ export default {
   .container {
     .blog {
       .cards {
-        justify-content: space-between;
+        justify-content: start;
       }
     }
   }

@@ -27,6 +27,7 @@ const routes = [
     component: () => import('@/pages/PostPage.vue'), // Use `import` aqui
     props: true,
   },
+
   {
     path: '/:catchAll(.*)',
     redirect: '/',

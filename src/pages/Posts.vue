@@ -67,6 +67,7 @@ export default {
 };
 </script>
 
+
 <style lang="scss" scoped>
 .container {
   .content {
@@ -101,11 +102,13 @@ export default {
             background-color: var(--color-2);
           }
         }
+
       }
     }
   }
 }
 @media (min-width: 600px) {
+
   .container {
     .content {
       .cards {
@@ -122,6 +125,7 @@ export default {
       .cards {
         justify-content: space-between;
       }
+
     }
   }
 }

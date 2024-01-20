@@ -63,6 +63,7 @@ export default {
   overflow: hidden;
   background-color: var(--color-3);
   box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 0.1);
+
   &-content {
     display: flex;
     flex-direction: column;

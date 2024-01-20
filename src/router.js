@@ -5,6 +5,8 @@ import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Posts from './pages/Posts.vue';
 import PostPage from './pages/PostPage.vue';
+import Login from './pages/Login.vue';
+import Register from './pages/Register.vue';
 
 
 const routes = [
@@ -15,12 +17,20 @@ const routes = [
   {
     path: '/about',
     component: About,
+    meta: { requiresAuth: true }
   },
   {
     path: '/posts',
     component: Posts,
   },
-  //Pagina individual de cada post
+  {
+    path: '/login',
+    component: Login,
+  },
+  {
+    path: '/register',
+    component: Register,
+  },
   {
     path: '/post/:url',
     name: 'PostPage',
@@ -38,5 +48,15 @@ const router = createRouter({
   history: createWebHistory(),
   routes,
 });
+
+router.beforeEach((to, from, next) => {
+  const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+  if (requiresAuth && !isAuthenticated) {
+    nex('/login');
+  } else {
+    next();
+  }
+})
 
 export default router;

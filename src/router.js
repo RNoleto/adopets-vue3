@@ -17,7 +17,6 @@ const routes = [
   {
     path: '/about',
     component: About,
-    meta: { requiresAuth: true }
   },
   {
     path: '/posts',

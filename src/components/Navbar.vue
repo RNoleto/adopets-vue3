@@ -32,7 +32,6 @@
           <router-link to="/posts" @click="closeNav">Posts</router-link>
         </li>
       </ul>
-      <button @click="logout">Logout</button>
     </div>
   </nav>
 </template>
@@ -53,9 +52,6 @@ export default {
     },
   },
   methods: {
-    logout() {
-      this.$store.dispatch("auth/logout");
-    },
     toggleNav() {
       this.isNavOpen = !this.isNavOpen;
       this.isClosing = false;

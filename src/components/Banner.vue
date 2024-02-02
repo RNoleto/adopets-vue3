@@ -18,17 +18,14 @@
       </div>
       <div class="secondColumn">
         <div class="images">
-          <div
-            class="card"
-            v-for="(animal, index) in shuffledAnimals.slice(0, 4)"
-            :key="index"
-          >
+          <div class="card" v-for="animal in animals" :key="animal.id">
             <p class="card-name">{{ animal.name }}</p>
             <img :src="animal.img" alt="" class="card-pet" />
             <div class="card-infos">
               <p>Raça: {{ animal.breed }}</p>
               <p>Idade: {{ animal.age }}</p>
               <p>Porte: {{ animal.size }}</p>
+              <p>Sexo: {{ animal.sexy }}</p>
             </div>
           </div>
         </div>
@@ -48,39 +45,21 @@ export default {
   },
   data() {
     return {
-      adoption: {
-        dogs: [],
-        cats: [],
-      },
+      animals: [],
     };
   },
-  computed: {
-    shuffledAnimals() {
-      const dogs = this.adoption.dog || [];
-      const cats = this.adoption.cat || [];
-      const shuffled = [];
-
-      while (dogs.length > 0 || cats.length > 0) {
-        if (dogs.length > 0) {
-          shuffled.push(dogs.shift());
-        }
-        if (cats.length > 0) {
-          shuffled.push(cats.shift());
-        }
-      }
-
-      return shuffled;
-    },
-  },
   created() {
-    axios
-      .get("src/api/adoption.json")
-      .then((response) => {
-        this.adoption = response.data.adoption;
-      })
-      .catch((error) => {
-        console.log("Erro ao buscar dados:", error);
-      });
+    this.fetchAnimals();
+  },
+  methods: {
+    async fetchAnimals() {
+      try {
+        const response = await axios.get("http://localhost:8000/api/animals");
+        this.animals = response.data;
+      } catch (error) {
+        console.error("Erro ao buscar animais:", error);
+      }
+    },
   },
 };
 </script>

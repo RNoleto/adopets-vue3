@@ -7,6 +7,7 @@ import Posts from './pages/Posts.vue';
 import PostPage from './pages/PostPage.vue';
 import Login from './pages/Login.vue';
 import Register from './pages/Register.vue';
+import Adoption from './pages/Adoption.vue'
 
 
 const routes = [
@@ -21,6 +22,10 @@ const routes = [
   {
     path: '/posts',
     component: Posts,
+  },
+  {
+    path: '/adoption',
+    component: Adoption,
   },
   {
     path: '/login',

@@ -1,82 +1,53 @@
 <template>
   <div>
-    <h2>Criar Cadastro</h2>
-    <form @submit.prevent="register">
+    <h2>Cadastro de Usuário</h2>
+    <form @submit.prevent="registerUser" method="POST">
       <div>
-        <label for="fullName">Nome Completo:</label>
-        <input type="text" id="fullName" v-model="fullName" required />
-      </div>
-      <div>
-        <label for="dob">Data de Nascimento:</label>
-        <input type="date" id="dob" v-model="dob" required />
+        <label for="name">Nome:</label>
+        <input type="text" id="name" v-model="formData.name" required />
       </div>
       <div>
         <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required />
-      </div>
-      <div>
-        <label for="confirmEmail">Confirmar Email:</label>
-        <input type="email" id="confirmEmail" v-model="confirmEmail" required />
+        <input type="email" name="email" v-model="formData.email" required />
       </div>
       <div>
         <label for="password">Senha:</label>
-        <input type="password" id="password" v-model="password" required />
-      </div>
-      <div>
-        <label for="confirmPassword">Confirmar Senha:</label>
         <input
           type="password"
-          id="confirmPassword"
-          v-model="confirmPassword"
+          id="password"
+          v-model="formData.password"
           required
         />
       </div>
-      <div>
-        <button type="submit">Criar Cadastro</button>
-      </div>
+      <button type="submit">Cadastrar</button>
     </form>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      fullName: "",
-      dob: "",
-      email: "",
-      confirmEmail: "",
-      password: "",
-      confirmPassword: "",
+      formData: {
+        name: "",
+        email: "",
+        password: "",
+      },
     };
   },
   methods: {
-    register() {
-      const userData = {
-        fullName: this.fullName,
-        dob: this.dob,
-        email: this.email,
-        confirmEmail: this.confirmEmail,
-        password: this.password,
-        confirmPassword: this.confirmPassword,
-      };
-
-      // Chame a ação de registro no Vuex
-      this.$store
-        .dispatch("auth/register", userData)
-        .then(() => {
-          // Redirecione para a página de login após o registro bem-sucedido
-          this.$router.push("/login");
+    registerUser() {
+      axios
+        .post("http://localhost:8000/api/register", this.formData)
+        .then((response) => {
+          console.log("Usuário cadastrado com sucesso:", response.data);
         })
         .catch((error) => {
-          // Trate os erros de registro
-          console.error("Erro ao criar cadastro:", error);
+          console.error("Erro ao cadastrar usuário:", error.response.data);
         });
     },
   },
 };
 </script>
-
-<style scoped>
-/* Adicione estilos CSS específicos para o seu componente aqui */
-</style>

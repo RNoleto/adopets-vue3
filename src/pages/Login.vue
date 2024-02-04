@@ -1,53 +1,54 @@
 <template>
   <div>
     <h2>Login</h2>
-    <form @submit.prevent="login">
+    <form @submit.prevent="loginUser" method="POST">
       <div>
         <label for="email">Email:</label>
-        <input type="email" id="email" v-model="email" required />
+        <input
+          type="email"
+          name="email"
+          v-model="formData.email"
+          autocomplete="current-password"
+          required
+        />
       </div>
       <div>
-        <label for="password">Senha:</label>
-        <input type="password" id="password" v-model="password" required />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          v-model="formData.password"
+          required
+        />
       </div>
-      <div>
-        <button type="submit">Login</button>
-      </div>
+      <button type="submit">Login</button>
     </form>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   data() {
     return {
-      email: "",
-      password: "",
+      formData: {
+        email: "",
+        password: "",
+      },
     };
   },
   methods: {
-    login() {
-      const credentials = {
-        email: this.email,
-        password: this.password,
-      };
-
-      // Chame a ação de login no Vuex
-      this.$store
-        .dispatch("auth/login", credentials)
-        .then(() => {
-          // Redirecione para a página protegida após o login bem-sucedido
-          this.$router.push("/home");
+    loginUser() {
+      axios
+        .post("/api/login", this.formData)
+        .then((response) => {
+          console.log("Login feito com sucesso:", response.data);
         })
         .catch((error) => {
-          // Trate os erros de autenticação
-          console.error("Erro ao fazer login:", error);
+          console.error("Login invalido", error.response.data);
         });
     },
   },
 };
 </script>
-
-<style scoped>
-/* Adicione estilos CSS específicos para o seu componente aqui */
-</style>

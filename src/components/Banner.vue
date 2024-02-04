@@ -20,7 +20,7 @@
         <div class="images">
           <div class="card" v-for="animal in animals" :key="animal.id">
             <p class="card-name">{{ animal.name }}</p>
-            <img :src="animal.img" alt="" class="card-pet" />
+            <img :src="animal.img" :alt="animal.name" class="card-pet" />
             <div class="card-infos">
               <p>Raça: {{ animal.breed }}</p>
               <p>Idade: {{ getAgeLabel(animal.age) }}</p>

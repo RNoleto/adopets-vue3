@@ -38,7 +38,7 @@ const routes = [
   {
     path: '/post/:url',
     name: 'PostPage',
-    component: () => import('@/pages/PostPage.vue'), // Use `import` aqui
+    component: () => import('@/pages/PostPage.vue'),
     props: true,
   },
 

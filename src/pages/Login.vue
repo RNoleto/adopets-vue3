@@ -1,28 +1,32 @@
 <template>
-  <div>
-    <h2>Login</h2>
-    <form @submit.prevent="loginUser" method="POST">
-      <div>
-        <label for="email">Email:</label>
-        <input
-          type="email"
-          name="email"
-          v-model="formData.email"
-          autocomplete="current-password"
-          required
-        />
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input
-          type="password"
-          id="password"
-          v-model="formData.password"
-          required
-        />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+  <div class="container">
+    <div class="content page">
+      <h2>Login</h2>
+      <form @submit.prevent="loginUser" method="POST">
+        <div>
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            name="email"
+            v-model="formData.email"
+            class="inputTypes"
+            required
+          />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            v-model="formData.password"
+            class="inputTypes"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+      </form>
+    </div>
   </div>
 </template>
 
@@ -52,3 +56,34 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.container {
+  min-height: 632px;
+}
+.page {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-1);
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.25);
+
+  label {
+    color: var(--color-3);
+  }
+  .inputTypes {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+  }
+  button {
+    width: 100%;
+    padding: 5px;
+    box-shadow: 2px 2px 2px rgba($color: #000000, $alpha: 0.25);
+  }
+}
+</style>

@@ -70,7 +70,7 @@ export default {
     justify-content: center;
 
     .animal-card {
-      max-width: 150px;
+      max-width: 185px;
       height: auto;
       overflow: hidden;
       border-radius: 10px;

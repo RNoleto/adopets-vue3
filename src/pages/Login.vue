@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div class="content page">
+      <img src="/assets/img/logo.png" alt="logo" class="logo" />
       <h2>Login</h2>
       <form @submit.prevent="loginUser" method="POST">
         <div>
@@ -45,7 +46,7 @@ export default {
   methods: {
     loginUser() {
       axios
-        .post("/api/login", this.formData)
+        .post("http://localhost:8000/api/login", this.formData)
         .then((response) => {
           console.log("Login feito com sucesso:", response.data);
         })
@@ -59,7 +60,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  min-height: 632px;
+  min-height: 640px;
 }
 .page {
   display: flex;
@@ -71,6 +72,10 @@ export default {
   background-color: var(--color-1);
   border-radius: 5px;
   box-shadow: 5px 5px 5px rgba($color: #000000, $alpha: 0.25);
+
+  .logo {
+    width: 120px;
+  }
 
   label {
     color: var(--color-3);

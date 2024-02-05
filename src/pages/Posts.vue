@@ -102,13 +102,11 @@ export default {
             background-color: var(--color-2);
           }
         }
-
       }
     }
   }
 }
 @media (min-width: 600px) {
-
   .container {
     .content {
       .cards {
@@ -123,9 +121,8 @@ export default {
   .container {
     .content {
       .cards {
-        justify-content: space-between;
+        justify-content: start;
       }
-
     }
   }
 }

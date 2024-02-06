@@ -3,7 +3,7 @@
     <div class="content page">
       <img src="/assets/img/logo.png" alt="logo" class="logo" />
       <h2>Login</h2>
-      <form @submit.prevent="loginUser" method="POST">
+      <form @submit.prevent="loginUser">
         <div>
           <label for="email">Email:</label>
           <input
@@ -44,15 +44,28 @@ export default {
     };
   },
   methods: {
-    loginUser() {
-      axios
-        .post("http://localhost:8000/api/login", this.formData)
-        .then((response) => {
-          console.log("Login feito com sucesso:", response.data);
-        })
-        .catch((error) => {
-          console.error("Login invalido", error.response.data);
+    async loginUser() {
+      try {
+        const response = await fetch("http://localhost:8000/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
+              .content,
+          },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password,
+          }),
         });
+        if (response.ok) {
+          console.log("Login bem-sucedido");
+        } else {
+          console.error("Erro ao tentar fazer login:", error);
+        }
+      } catch (error) {
+        console.error("Erro ao fazer login", error);
+      }
     },
   },
 };

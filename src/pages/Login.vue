@@ -3,15 +3,15 @@
     <div class="content page">
       <img src="/assets/img/logo.png" alt="logo" class="logo" />
       <h2>Login</h2>
-      <form @submit.prevent="loginUser">
+      <form @submit.prevent="submit">
         <div>
           <label for="email">Email:</label>
           <input
             type="email"
             name="email"
-            v-model="formData.email"
+            id="email"
+            v-model="email"
             class="inputTypes"
-            required
           />
         </div>
         <div>
@@ -20,9 +20,8 @@
             type="password"
             name="password"
             id="password"
-            v-model="formData.password"
+            v-model="password"
             class="inputTypes"
-            required
           />
         </div>
         <button type="submit">Login</button>
@@ -32,40 +31,53 @@
 </template>
 
 <script>
-import axios from "axios";
-
+import Cookie from "js-cookie";
 export default {
   data() {
     return {
-      formData: {
-        email: "",
-        password: "",
-      },
+      email: "",
+      password: "",
     };
   },
+  created() {
+    Cookie.remove("_myapp_token");
+  },
   methods: {
-    async loginUser() {
-      try {
-        const response = await fetch("http://localhost:8000/api/login", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]')
-              .content,
-          },
-          body: JSON.stringify({
-            email: this.email,
-            password: this.password,
-          }),
+    submit() {
+      const payload = {
+        email: this.email,
+        password: this.password,
+      };
+
+      fetch("http://localhost:8000/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Access: "application/json",
+        },
+        body: JSON.stringify(payload),
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error("Failed to login");
+          }
+          return response.json();
+        })
+        .then((res) => {
+          if (res.access_token) {
+            Cookie.set("_myapp_token", res.access_token);
+            // Redirecionar para a página inicial após o login bem-sucedido
+            window.alert("Login feito com sucesso.");
+            this.$router.push("/");
+          } else {
+            throw new Error("Falha ao acessar o token");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // Adicione aqui a lógica para lidar com erros de login, como exibir uma mensagem de erro para o usuário
+          window.alert("Erro ao acessar o Login. Por favor, tente novamente.");
         });
-        if (response.ok) {
-          console.log("Login bem-sucedido");
-        } else {
-          console.error("Erro ao tentar fazer login:", error);
-        }
-      } catch (error) {
-        console.error("Erro ao fazer login", error);
-      }
     },
   },
 };

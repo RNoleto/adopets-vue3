@@ -45,6 +45,9 @@ export default {
       axios
         .post("http://localhost:8000/api/register", this.formData)
         .then((response) => {
+          window.alert(
+            `Cadastro feito de ${this.formData.name} feito com sucesso!`
+          );
           console.log("Usuário cadastrado com sucesso:", response.data);
         })
         .catch((error) => {

@@ -36,7 +36,7 @@ export default {
   methods: {
     async fetchAnimals() {
       try {
-        const response = await axios.get("http://localhost:8000/api/animals");
+        const response = await axios.get("/animals");
         this.animals = response.data;
       } catch (error) {
         console.error("Erro ao buscar animais:", error);

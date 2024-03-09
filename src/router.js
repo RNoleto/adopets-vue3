@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 
-// Importe os componentes que deseja usar nas rotas a partir do diretório "pages"
 import Home from './pages/Home.vue';
 import About from './pages/About.vue';
 import Posts from './pages/Posts.vue';
@@ -8,6 +7,7 @@ import PostPage from './pages/PostPage.vue';
 import Login from './pages/Login.vue';
 import Register from './pages/Register.vue';
 import Adoption from './pages/Adoption.vue';
+import Dashboard from './pages/Dashboard.vue';
 import Guard from './services/middleware.js'
 
 
@@ -19,7 +19,11 @@ const routes = [
   {
     path: '/about',
     component: About,
-    beforeEnter: Guard.auth,
+  },
+  {
+    path: '/dashboard',
+    component: Dashboard,
+    beforeEnter: Guard.auth, //precisa de autenticação
   },
   {
     path: '/posts',

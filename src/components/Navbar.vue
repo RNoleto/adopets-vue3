@@ -34,13 +34,8 @@
         <li class="menu-mobile">
           <router-link to="/posts" @click="closeNav">Posts</router-link>
         </li>
-        <li class="menu-mobile subnav" v-if="tokenExists">
-          <p>Dashboard</p>
-          <div class="subnav-content">
-            <router-link to="/dashboard" @click="closeNav">Menu 1</router-link>
-            <router-link to="/dashboard" @click="closeNav">Menu 2</router-link>
-            <router-link to="/dashboard" @click="closeNav">Menu 3</router-link>
-          </div>
+        <li class="menu-mobile" v-if="tokenExists">
+          <router-link to="/dashboard">Dashboard</router-link>
         </li>
       </ul>
     </div>

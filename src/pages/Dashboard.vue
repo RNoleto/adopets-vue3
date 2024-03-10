@@ -1,19 +1,20 @@
 <template>
   <Navbar />
   <div class="dashboard">
+    <h1>Minha Conta</h1>
     <div class="sidebar">
       <ul class="menu">
         <li
-          @click="activeMenuItem = 'menu1'"
-          class="={'active': activeMenuItem = 'menu1' }"
+          @click="activeMenuItem = 'meusPets'"
+          class="={'active': activeMenuItem = 'pets' }"
         >
-          menu 1
+          Meus Pets
         </li>
         <li
-          @click="activeMenuItem = 'menu2'"
+          @click="activeMenuItem = 'meusDados'"
           class="={'active': activeMenuItem = 'menu2' }"
         >
-          menu 2
+          Meus Dados
         </li>
         <li
           @click="activeMenuItem = 'menu3'"
@@ -24,12 +25,11 @@
       </ul>
     </div>
     <div class="content">
-      <h1>Dashboard para usuarios Logados</h1>
-      <div v-if="activeMenuItem === 'menu1'">
-        <h2>Sessão Menu 1</h2>
+      <div v-if="activeMenuItem === 'meusPets'">
+        <h2>Sessão Meus Pets</h2>
       </div>
-      <div v-else-if="activeMenuItem === 'menu2'">
-        <h2>Sessão Menu 2</h2>
+      <div v-else-if="activeMenuItem === 'meusDados'">
+        <h2>Sessão Meus Dados</h2>
       </div>
       <div v-else>
         <h2>Sessão Menu 3</h2>
@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      activeMenuItem: "menu1",
+      activeMenuItem: "meusPets",
     };
   },
 };
@@ -54,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 .dashboard {
   min-height: 560px;
-  // padding: 10px;
+  padding: 10px;
   .sidebar {
     width: auto;
     .menu {

@@ -32,6 +32,7 @@
 
 <script>
 import Cookie from "js-cookie";
+import axios from "axios";
 export default {
   data() {
     return {
@@ -46,24 +47,16 @@ export default {
         password: this.password,
       };
 
-      fetch("http://localhost:8000/api/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Access: "application/json",
-        },
-        body: JSON.stringify(payload),
-      })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Failed to login");
-          }
-          return response.json();
+      axios
+        .post("/login", payload, {
+          headers: {
+            "Content-Type": "application/json",
+            Access: "application/json",
+          },
         })
-        .then((res) => {
-          if (res.access_token) {
-            Cookie.set("_myapp_token", res.access_token);
-            // Redirecionar para a página inicial após o login bem-sucedido
+        .then((response) => {
+          if (response.data.access_token) {
+            Cookie.set("_myapp_token", response.data.access_token);
             window.alert("Login feito com sucesso.");
             this.$router.push("/");
           } else {
@@ -72,8 +65,7 @@ export default {
         })
         .catch((error) => {
           console.error("Error:", error);
-          // Adicione aqui a lógica para lidar com erros de login, como exibir uma mensagem de erro para o usuário
-          window.alert("Erro ao acessar o Login. Por favor, tente novamente.");
+          window.alert("Erro ao acessasr o Login. Por favor, tente novamente.");
         });
     },
   },

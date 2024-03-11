@@ -6,19 +6,19 @@
       <ul class="menu">
         <li
           @click="activeMenuItem = 'meusPets'"
-          class="={'active': activeMenuItem = 'pets' }"
+          :class="{ active: activeMenuItem === 'meusPets' }"
         >
           Meus Pets
         </li>
         <li
-          @click="activeMenuItem = 'meusDados'"
-          class="={'active': activeMenuItem = 'menu2' }"
+          @click="activeMenuItem = 'species'"
+          :class="{ active: activeMenuItem === 'species' }"
         >
-          Meus Dados
+          Especies
         </li>
         <li
           @click="activeMenuItem = 'menu3'"
-          class="={'active': activeMenuItem = 'menu3' }"
+          :class="{ active: activeMenuItem === 'menu3' }"
         >
           menu 3
         </li>
@@ -26,22 +26,23 @@
     </div>
     <div class="content">
       <div v-if="activeMenuItem === 'meusPets'">
-        <h2>Sessão Meus Pets</h2>
+        <MyPetsVue />
       </div>
-      <div v-else-if="activeMenuItem === 'meusDados'">
-        <h2>Sessão Meus Dados</h2>
-      </div>
+      <div v-else-if="activeMenuItem === 'species'"></div>
       <div v-else>
         <h2>Sessão Menu 3</h2>
       </div>
     </div>
   </div>
 </template>
+
 <script>
+import MyPetsVue from "../components/MyPets.vue";
 import Navbar from "../components/Navbar.vue";
 export default {
   components: {
     Navbar,
+    MyPetsVue,
   },
   data() {
     return {
@@ -62,7 +63,7 @@ export default {
       gap: 10px;
       li {
         padding: 6px 12px;
-        background-color: pink;
+        background-color: var(--color-1);
         font-size: 12px;
       }
     }

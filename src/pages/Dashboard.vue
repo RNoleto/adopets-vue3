@@ -28,7 +28,9 @@
       <div v-if="activeMenuItem === 'meusPets'">
         <MyPetsVue />
       </div>
-      <div v-else-if="activeMenuItem === 'species'"></div>
+      <div v-else-if="activeMenuItem === 'species'">
+        <species-vue />
+      </div>
       <div v-else>
         <h2>Sessão Menu 3</h2>
       </div>
@@ -39,10 +41,12 @@
 <script>
 import MyPetsVue from "../components/MyPets.vue";
 import Navbar from "../components/Navbar.vue";
+import SpeciesVue from "../components/Species.vue";
 export default {
   components: {
     Navbar,
     MyPetsVue,
+    SpeciesVue,
   },
   data() {
     return {

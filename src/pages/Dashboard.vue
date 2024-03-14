@@ -2,7 +2,7 @@
   <Navbar />
   <div class="dashboard">
     <h1>Meu painel</h1>
-    <p>Seja bem-vindo, {{ userName }}.</p>
+    <p>Seja bem-vindo, {{ userName }}. Meu id é {{ userId }}</p>
     <div class="sidebar">
       <ul class="menu">
         <li
@@ -59,17 +59,20 @@ export default {
   setup() {
     const userStore = useUserStore();
     let userName = userStore.getUser ? userStore.getUser.name : null;
+    let userId = userStore.getUser ? userStore.getUser.id : null;
 
-    // Verificar se o userName está vazio e, em seguida, tentar obtê-lo do localStorage
-    if (!userName) {
+    // Verificar se o userName e userId estão vazios e, em seguida, tentar obtê-los do localStorage
+    if (!userName || !userId) {
       const userFromLocalStorage = JSON.parse(localStorage.getItem("user"));
       if (userFromLocalStorage) {
         userName = userFromLocalStorage.name;
+        userId = userFromLocalStorage.id;
       }
     }
 
     return {
       userName,
+      userId, // Adicionando userId ao retorno do setup
     };
   },
 };

@@ -66,8 +66,15 @@ export default {
 
             userStore.loginUser({ name: response.data.user.name });
 
+            userStore.loginUser({
+              id: response.data.user.id,
+              name: response.data.user.name,
+            });
+
             window.alert(
-              "Login feito com sucesso. Bem-vindo " + response.data.user.name
+              "Login feito com sucesso. Bem-vindo " +
+                response.data.user.name +
+                response.data.user.id
             );
             this.$router.push("/");
           } else {

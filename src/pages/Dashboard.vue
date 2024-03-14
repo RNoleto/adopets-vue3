@@ -58,9 +58,18 @@ export default {
   },
   setup() {
     const userStore = useUserStore();
+    let userName = userStore.getUser ? userStore.getUser.name : null;
+
+    // Verificar se o userName está vazio e, em seguida, tentar obtê-lo do localStorage
+    if (!userName) {
+      const userFromLocalStorage = JSON.parse(localStorage.getItem("user"));
+      if (userFromLocalStorage) {
+        userName = userFromLocalStorage.name;
+      }
+    }
 
     return {
-      userName: useUserStore ? userStore.getUser.name : null,
+      userName,
     };
   },
 };

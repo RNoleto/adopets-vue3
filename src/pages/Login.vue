@@ -66,9 +66,6 @@ export default {
 
             userStore.loginUser({ name: response.data.user.name });
 
-            // Armazenar informações do usuário no local storage
-            Cookie.set("user", JSON.stringify(response.data.user.name));
-
             window.alert(
               "Login feito com sucesso. Bem-vindo " + response.data.user.name
             );

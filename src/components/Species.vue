@@ -23,21 +23,25 @@
 import axios from "axios";
 
 export default {
+  props: {
+    userId: {
+      type: Number,
+      required: true, // Certifique-se de que o userId é requerido
+    },
+  },
   data() {
     return {
       novaEspecie: {
         nome: "",
+        user_id: this.userId, // Use o userId passado como prop
       },
       especies: [],
     };
   },
-  mounted() {
-    this.carregarEspecies();
-  },
   methods: {
     async submitForm() {
       try {
-        const response = await axios.post("/species", this.novaEspecie); // Corrigindo a rota para /api/species
+        const response = await axios.post("/species", this.novaEspecie);
         this.especies.push(response.data);
         this.novaEspecie.nome = ""; // Limpa o campo após a criação
       } catch (error) {
@@ -46,12 +50,15 @@ export default {
     },
     async carregarEspecies() {
       try {
-        const response = await axios.get("/species"); // Corrigindo a rota para /api/species
+        const response = await axios.get("/species");
         this.especies = response.data;
       } catch (error) {
         console.error("Erro ao carregar espécies:", error);
       }
     },
+  },
+  mounted() {
+    this.carregarEspecies();
   },
 };
 </script>

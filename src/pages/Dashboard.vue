@@ -30,7 +30,7 @@
         <MyPetsVue />
       </div>
       <div v-else-if="activeMenuItem === 'species'">
-        <species-vue />
+        <species-vue :userId="userId" />
       </div>
       <div v-else>
         <h2>Sessão Menu 3</h2>

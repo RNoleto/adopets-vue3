@@ -37,7 +37,7 @@ export default {
   methods: {
     async submitForm() {
       try {
-        const response = await axios.post("/api/species", this.novaEspecie); // Corrigindo a rota para /api/species
+        const response = await axios.post("/species", this.novaEspecie); // Corrigindo a rota para /api/species
         this.especies.push(response.data);
         this.novaEspecie.nome = ""; // Limpa o campo após a criação
       } catch (error) {
@@ -46,7 +46,7 @@ export default {
     },
     async carregarEspecies() {
       try {
-        const response = await axios.get("/api/species"); // Corrigindo a rota para /api/species
+        const response = await axios.get("/species"); // Corrigindo a rota para /api/species
         this.especies = response.data;
       } catch (error) {
         console.error("Erro ao carregar espécies:", error);

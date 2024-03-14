@@ -33,6 +33,9 @@
 <script>
 import Cookie from "js-cookie";
 import axios from "axios";
+
+import { useUserStore } from "../store/userStore";
+
 export default {
   data() {
     return {
@@ -56,8 +59,19 @@ export default {
         })
         .then((response) => {
           if (response.data.access_token) {
+            // Armazenar token no local storage
             Cookie.set("_myapp_token", response.data.access_token);
-            window.alert("Login feito com sucesso.");
+
+            const userStore = useUserStore();
+
+            userStore.loginUser({ name: response.data.user.name });
+
+            // Armazenar informações do usuário no local storage
+            Cookie.set("user", JSON.stringify(response.data.user.name));
+
+            window.alert(
+              "Login feito com sucesso. Bem-vindo " + response.data.user.name
+            );
             this.$router.push("/");
           } else {
             throw new Error("Falha ao acessar o token");

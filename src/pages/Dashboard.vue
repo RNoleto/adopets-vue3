@@ -1,7 +1,8 @@
 <template>
   <Navbar />
   <div class="dashboard">
-    <h1>Minha Conta</h1>
+    <h1>Meu painel</h1>
+    <p>Seja bem-vindo, {{ userName }}.</p>
     <div class="sidebar">
       <ul class="menu">
         <li
@@ -42,6 +43,8 @@
 import MyPetsVue from "../components/MyPets.vue";
 import Navbar from "../components/Navbar.vue";
 import SpeciesVue from "../components/Species.vue";
+
+import { useUserStore } from "../store/userStore";
 export default {
   components: {
     Navbar,
@@ -51,6 +54,13 @@ export default {
   data() {
     return {
       activeMenuItem: "meusPets",
+    };
+  },
+  setup() {
+    const userStore = useUserStore();
+
+    return {
+      userName: useUserStore ? userStore.getUser.name : null,
     };
   },
 };

@@ -18,17 +18,14 @@
       </div>
       <div class="secondColumn">
         <div class="images">
-          <div
-            class="card"
-            v-for="(animal, index) in shuffledAnimals.slice(0, 4)"
-            :key="index"
-          >
+          <div class="card" v-for="animal in animals" :key="animal.id">
             <p class="card-name">{{ animal.name }}</p>
-            <img :src="animal.img" alt="" class="card-pet" />
+            <img :src="animal.img" :alt="animal.name" class="card-pet" />
             <div class="card-infos">
               <p>Raça: {{ animal.breed }}</p>
-              <p>Idade: {{ animal.age }}</p>
-              <p>Porte: {{ animal.size }}</p>
+              <p>Idade: {{ getAgeLabel(animal.age) }}</p>
+              <p>Porte: {{ getSizeLabel(animal.size) }}</p>
+              <p>Sexo: {{ getGenderLabel(animal.gender) }}</p>
             </div>
           </div>
         </div>
@@ -48,39 +45,58 @@ export default {
   },
   data() {
     return {
-      adoption: {
-        dogs: [],
-        cats: [],
-      },
+      animals: [],
     };
   },
-  computed: {
-    shuffledAnimals() {
-      const dogs = this.adoption.dog || [];
-      const cats = this.adoption.cat || [];
-      const shuffled = [];
-
-      while (dogs.length > 0 || cats.length > 0) {
-        if (dogs.length > 0) {
-          shuffled.push(dogs.shift());
-        }
-        if (cats.length > 0) {
-          shuffled.push(cats.shift());
+  created() {
+    this.fetchAnimals();
+  },
+  methods: {
+    async fetchAnimals() {
+      try {
+        const response = await axios.get("/animals");
+        this.animals = response.data;
+      } catch (error) {
+        console.error("Erro ao buscar animais:", error);
+      }
+    },
+    getSizeLabel(size) {
+      //converte o valor de animal.size para o porte respectivo
+      switch (size) {
+        case 0:
+          return "Toy";
+        case 1:
+          return "Pequeno";
+        case 2:
+          return "Médio";
+        case 3:
+          return "Grande";
+        default:
+          return "Desconhecido";
+      }
+    },
+    getGenderLabel(gender) {
+      //converte o valor de animal.gender para o respectivo sexo
+      switch (gender) {
+        case 0:
+          return "Macho";
+        case 1:
+          return "Fêmea";
+      }
+    },
+    getAgeLabel(age) {
+      if (age < 12) {
+        return `${age} meses`;
+      } else {
+        const years = Math.floor(age / 12);
+        const months = age % 12;
+        if (months === 0) {
+          return `${years} ano${years > 1 ? "s" : ""}`;
+        } else {
+          return `${years} ano${years > 1 ? "s" : ""} e ${months} meses`;
         }
       }
-
-      return shuffled;
     },
-  },
-  created() {
-    axios
-      .get("src/api/adoption.json")
-      .then((response) => {
-        this.adoption = response.data.adoption;
-      })
-      .catch((error) => {
-        console.log("Erro ao buscar dados:", error);
-      });
   },
 };
 </script>
@@ -112,7 +128,7 @@ export default {
         }
         .info {
           width: 100%;
-          text-align: center;
+          text-align: left;
         }
       }
       .socials {

@@ -41,7 +41,8 @@ export default {
   margin-top: 10px;
   gap: 5px;
   .card {
-    width: 190px;
+    width: 120px;
+    height: auto;
     padding: 10px;
     gap: 10px;
     display: flex;

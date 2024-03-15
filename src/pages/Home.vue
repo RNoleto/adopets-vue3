@@ -34,47 +34,58 @@
           peludos.
         </p>
       </div>
-    </div>
-    <section class="blog">
-      <div class="content">
-        <h2 class="title">Blog Adopet</h2>
-        <div class="cards">
-          <Card class="card" v-for="(post, index) in sortedPosts" :key="index">
-            <template v-slot:image
-              ><img class="card-image" :src="post.img" :alt="post.title"
-            /></template>
-            <template v-slot:title>{{ post.title }}</template>
-            <template v-slot:date
-              ><p>
-                {{ formatBrazilianDate(post.date) }}
-              </p></template
+      <section class="blog">
+        <div class="content">
+          <h2 class="title">Blog Adopet</h2>
+          <div class="cards">
+            <Card
+              class="card"
+              v-for="(post, index) in sortedPosts"
+              :key="index"
             >
-            <template v-slot:description>{{ post.resume }}</template>
-            <template v-slot:button>
-              <div
-                class="btn"
-                @click="navigateToPost(post.url)"
-                v-if="post.url"
+              <template v-slot:image
+                ><img class="card-image" :src="post.img" :alt="post.title"
+              /></template>
+              <template v-slot:title>{{ post.title }}</template>
+              <template v-slot:date
+                ><p>
+                  {{ formatBrazilianDate(post.date) }}
+                </p></template
               >
-                Ver Mais
-              </div>
-            </template>
-          </Card>
+              <template v-slot:description>{{ post.resume }}</template>
+              <template v-slot:button>
+                <div
+                  class="btn"
+                  @click="navigateToPost(post.url)"
+                  v-if="post.url"
+                >
+                  Ver Mais
+                </div>
+              </template>
+            </Card>
+          </div>
         </div>
-      </div>
-    </section>
-    <section class="services">
-      <div class="content">
-        <h1>Serviços</h1>
-        <Services />
-      </div>
-    </section>
+      </section>
+      <section class="services">
+        <div class="content">
+          <h1>Serviços</h1>
+          <Services />
+        </div>
+      </section>
+      <section class="wanted">
+        <div class="content">
+          <h1>Perdidos</h1>
+          <wanteds />
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 <script>
 import Banner from "@/components/Banner.vue";
 import Card from "@/components/Card.vue";
 import Services from "@/components/Services.vue";
+import Wanteds from "../components/Wanteds.vue";
 
 import axios from "axios";
 export default {
@@ -82,6 +93,7 @@ export default {
     Banner,
     Card,
     Services,
+    Wanteds,
   },
   data() {
     return {
@@ -134,7 +146,6 @@ export default {
   }
   //Sessão de Blog
   .blog {
-    padding: 10px 0px;
     .cards {
       margin-top: 10px;
       max-width: 100%;

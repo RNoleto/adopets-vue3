@@ -29,7 +29,13 @@
           <router-link to="/about" @click="closeNav">Quem Somos</router-link>
         </li>
         <li class="menu-mobile">
+          <router-link to="/adoption" @click="closeNav">Adoção</router-link>
+        </li>
+        <li class="menu-mobile">
           <router-link to="/posts" @click="closeNav">Posts</router-link>
+        </li>
+        <li class="menu-mobile" v-if="tokenExists">
+          <router-link to="/dashboard">Dashboard</router-link>
         </li>
       </ul>
     </div>
@@ -38,13 +44,23 @@
 
 <script>
 import "animate.css";
+import Cookie from "js-cookie";
 export default {
   name: "Navbar",
   data() {
     return {
+      tokenExists: false,
       isNavOpen: false,
       isClosing: false,
     };
+  },
+  computed: {
+    isAuthenticated() {
+      return this.$store.state.auth.isAuthenticated;
+    },
+  },
+  mounted() {
+    this.tokenExists = Cookie.get("_myapp_token") !== undefined;
   },
   methods: {
     toggleNav() {
@@ -126,7 +142,8 @@ nav {
         display: none;
       }
 
-      li {
+      li,
+      p {
         margin-right: 1rem;
       }
 
@@ -142,7 +159,8 @@ nav {
         padding: 1rem;
         display: none;
         z-index: 1;
-        li {
+        li,
+        p {
           color: var(--color-4);
           margin: 0;
           margin-bottom: 1rem;
@@ -181,8 +199,26 @@ nav {
             }
           }
           .menu-mobile {
-            padding: 1rem;
+            padding: 8px;
             text-align: center;
+          }
+          .subnav {
+            .subnav-content {
+              width: 100%;
+              z-index: 1;
+              display: none;
+              a {
+                color: var(--color-4);
+                background-color: red;
+                text-decoration: none;
+                padding: 5px 10px;
+                text-align: center;
+              }
+            }
+          }
+          .subnav:hover .subnav-content {
+            display: flex;
+            flex-direction: column;
           }
         }
       }

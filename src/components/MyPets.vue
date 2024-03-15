@@ -1,29 +1,38 @@
 <template>
   <h2>Meus Pets</h2>
   <div class="content">
-    <form action="POST">
-      <div @submit.prevent="registerPet" class="inputType">
-        <label for="nome">Nome</label>
-        <input type="text" name="nome" />
-      </div>
+    <form @submit.prevent="registerPet">
       <div class="inputType">
-        <label for="especie">Especie</label>
-        <select name="especie" id="especie">
-          <option value="#">Selecione</option>
-          <option value="1">Especie 1</option>
+        <label for="nome">Nome</label>
+        <input type="text" v-model="name" name="nome" />
+      </div>
+      <!-- Seleção de Especies -->
+      <div class="inputType">
+        <label for="especie">Espécie</label>
+        <select name="especie" v-model="selectedSpecies">
+          <option :value="null" :disabled="selectedSpecies === null">
+            Selecione
+          </option>
+          <option
+            v-for="species in speciesList"
+            :key="species.id"
+            :value="species.id"
+          >
+            {{ species.nome }}
+          </option>
         </select>
       </div>
       <div class="inputType">
         <label for="raca">Raça</label>
-        <input type="text" name="raca" />
+        <input type="text" v-model="raca" name="raca" />
       </div>
       <div class="inputType">
         <label for="nascimento">Data de Nascimento</label>
-        <input type="date" name="nascimento" />
+        <input type="date" v-model="nascimento" name="nascimento" />
       </div>
       <div class="inputType">
         <label for="porte">Porte</label>
-        <select name="porte" id="porte">
+        <select name="porte" v-model="porte" id="porte">
           <option value="#">Selecione</option>
           <option value="toy">Toy</option>
           <option value="pequeno">Pequeno</option>
@@ -33,15 +42,15 @@
       </div>
       <div class="inputType">
         <label for="genero">Sexo</label>
-        <select name="genero" id="genero">
+        <select name="genero" v-model="sexo" id="genero">
           <option value="#">Selecione</option>
           <option value="masculino">Masculino</option>
           <option value="feminino">Feminino</option>
         </select>
       </div>
       <div class="inputType">
-        <label for="">Disponivel para Adoção?</label>
-        <select name="adocao" id="adocao">
+        <label for="adocao">Disponível para Adoção?</label>
+        <select name="adocao" v-model="adocao" id="adocao">
           <option value="#">Selecione</option>
           <option value="sim">Sim</option>
           <option value="nao">Não</option>
@@ -63,18 +72,54 @@ export default {
       nascimento: "",
       porte: "",
       sexo: "",
+      adocao: "",
+      speciesList: [],
+      selectedSpecies: null,
     };
+  },
+  mounted() {
+    this.loadSpecies();
   },
   methods: {
     registerPet() {
+      const formData = {
+        name: this.name,
+        raca: this.raca,
+        nascimento: this.nascimento,
+        porte: this.porte,
+        sexo: this.sexo,
+        adocao: this.adocao,
+        speciesId: this.selectedSpecies,
+      };
+
       axios
-        .post("/animals", this.formData)
+        .post("/animals", formData)
         .then((response) => {
-          window.alert(`Cadastro de ${this.formData.name} feito com sucesso!`);
+          window.alert(`Cadastro de ${formData.name} feito com sucesso!`);
+          this.resetForm();
         })
         .catch((error) => {
           console.error("Erro ao cadastrar o pet:", error.response.data);
         });
+    },
+    loadSpecies() {
+      axios
+        .get("/species")
+        .then((response) => {
+          this.speciesList = response.data;
+        })
+        .catch((error) => {
+          console.error("Erro ao carregar as espécies:", error);
+        });
+    },
+    resetForm() {
+      this.name = "";
+      this.raca = "";
+      this.nascimento = "";
+      this.porte = "";
+      this.sexo = "";
+      this.adocao = "";
+      this.selectedSpecies = "";
     },
   },
 };

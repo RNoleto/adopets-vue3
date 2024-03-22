@@ -49,8 +49,8 @@
         </select>
       </div>
       <div class="inputType">
-        <label for="adocao">Disponível para Adoção?</label>
-        <select name="adocao" v-model="adocao" id="adocao">
+        <label for="adocao">Situação do Animal</label>
+        <select name="adocao" v-model="situacao" id="adocao">
           <option value="#">Selecione</option>
           <option value="sim">Sim</option>
           <option value="nao">Não</option>
@@ -126,12 +126,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.content {
-  .inputType {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0px;
-  }
-}
 </style>

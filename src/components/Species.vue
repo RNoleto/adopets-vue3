@@ -2,13 +2,20 @@
   <div>
     <!-- Formulário de criação de espécie -->
     <form @submit.prevent="submitForm">
-      <label for="nome">Nome da Espécie:</label>
-      <input type="text" id="nome" v-model="novaEspecie.nome" required />
+      <div class="inputType">
+        <label for="nome">Nome da Espécie:</label>
+        <input
+          type="text"
+          id="nome"
+          v-model="novaEspecie.nome"
+          required
+          class="inputType"
+        />
+      </div>
       <button type="submit">Criar Espécie</button>
     </form>
-
     <!-- Lista de espécies -->
-    <div v-if="especies.length">
+    <div v-if="especies.length" class="speciesList">
       <h2>Lista de Espécies</h2>
       <ul>
         <li v-for="especie in especies" :key="especie.id">
@@ -63,5 +70,20 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+.speciesList {
+  margin-top: 10px;
+  ul {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    li {
+      max-width: max-content;
+      border: 1px solid var(--color-1);
+      padding: 3px 6px;
+    }
+  }
+}
 </style>

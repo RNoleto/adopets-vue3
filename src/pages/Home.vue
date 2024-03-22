@@ -34,7 +34,7 @@
           peludos.
         </p>
       </div>
-      <section class="blog">
+      <!-- <section class="blog">
         <div class="content">
           <h2 class="title">Blog Adopet</h2>
           <div class="cards">
@@ -65,35 +65,19 @@
             </Card>
           </div>
         </div>
-      </section>
-      <section class="services">
-        <div class="content">
-          <h1>Serviços</h1>
-          <Services />
-        </div>
-      </section>
-      <section class="wanted">
-        <div class="content">
-          <h1>Perdidos</h1>
-          <wanteds />
-        </div>
-      </section>
+      </section> -->
     </div>
   </div>
 </template>
 <script>
 import Banner from "@/components/Banner.vue";
 import Card from "@/components/Card.vue";
-import Services from "@/components/Services.vue";
-import Wanteds from "../components/Wanteds.vue";
 
 import axios from "axios";
 export default {
   components: {
     Banner,
     Card,
-    Services,
-    Wanteds,
   },
   data() {
     return {

@@ -2,7 +2,7 @@
   <Navbar />
   <div class="dashboard">
     <h1>Meu painel</h1>
-    <p>Seja bem-vindo, {{ userName }}. Meu id é {{ userId }}</p>
+    <p>Seja bem-vindo, {{ userName }}.</p>
     <div class="sidebar">
       <ul class="menu">
         <li
